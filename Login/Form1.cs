@@ -1,0 +1,41 @@
+namespace Login
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string usuario = textBoxUsuario.Text;
+            string senha = Boxsenha.Text;
+            if (usuario == null || usuario == " ") 
+            {
+                labelUsuario.Text = "Nome é obrigatório!";
+                labelUsuario.ForeColor = Color.Red;
+                return;
+            }
+
+            if (usuario == "Keanu" && senha == "123" )
+            {
+                labelUsuario.Text = "Autentificado com sucesso!";
+                labelUsuario.ForeColor = Color.Blue;
+            }
+            else
+            {
+                labelUsuario.Text = "Senha ou nome incorretos!";
+                labelUsuario.ForeColor = Color.Red;
+            }
+
+            
+
+        }
+    }
+}
