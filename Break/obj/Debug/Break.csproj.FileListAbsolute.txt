@@ -1,0 +1,19 @@
+B:\Nova pasta\C#\Break\obj\Debug\Break.csproj.AssemblyReference.cache
+B:\Nova pasta\C#\Break\obj\Debug\Break.Form1.resources
+B:\Nova pasta\C#\Break\obj\Debug\Break.csproj.GenerateResource.cache
+B:\Nova pasta\C#\Break\obj\Debug\Break.csproj.CoreCompileInputs.cache
+B:\Nova pasta\C#\Break\bin\Debug\Breakdance.exe.config
+B:\Nova pasta\C#\Break\bin\Debug\Breakdance.exe
+B:\Nova pasta\C#\Break\bin\Debug\Breakdance.pdb
+B:\Nova pasta\C#\Break\obj\Debug\Breakdance.Properties.Resources.resources
+B:\Nova pasta\C#\Break\obj\Debug\Breakdance.exe
+B:\Nova pasta\C#\Break\obj\Debug\Breakdance.pdb
+C:\Users\eduardo.glira\programador\senac-programador\Break\bin\Debug\Breakdance.exe.config
+C:\Users\eduardo.glira\programador\senac-programador\Break\bin\Debug\Breakdance.exe
+C:\Users\eduardo.glira\programador\senac-programador\Break\obj\Debug\Break.csproj.AssemblyReference.cache
+C:\Users\eduardo.glira\programador\senac-programador\Break\obj\Debug\Break.Form1.resources
+C:\Users\eduardo.glira\programador\senac-programador\Break\obj\Debug\Breakdance.Properties.Resources.resources
+C:\Users\eduardo.glira\programador\senac-programador\Break\obj\Debug\Break.csproj.GenerateResource.cache
+C:\Users\eduardo.glira\programador\senac-programador\Break\obj\Debug\Break.csproj.CoreCompileInputs.cache
+C:\Users\eduardo.glira\programador\senac-programador\Break\obj\Debug\Breakdance.exe
+C:\Users\eduardo.glira\programador\senac-programador\Break\obj\Debug\Breakdance.pdb
