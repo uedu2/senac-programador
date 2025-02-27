@@ -16,14 +16,30 @@ namespace Login
         {
             string usuario = textBoxUsuario.Text;
             string senha = Boxsenha.Text;
-            if (usuario == null || usuario == " ") 
+
+            if (string.IsNullOrWhiteSpace(usuario) && string.IsNullOrWhiteSpace(senha))
+            {
+                labelUsuario.Text = "Nome e Senha são obrigatórios!";
+                labelUsuario.ForeColor = Color.Red;
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(usuario))
             {
                 labelUsuario.Text = "Nome é obrigatório!";
                 labelUsuario.ForeColor = Color.Red;
                 return;
             }
 
-            if (usuario == "Keanu" && senha == "123" )
+
+            if (string.IsNullOrWhiteSpace(senha))
+            {
+                labelUsuario.Text = "Senha é obrigatório!";
+                labelUsuario.ForeColor = Color.Red;
+                return;
+            }
+
+            if (usuario == "Keanu" && senha == "123")
             {
                 labelUsuario.Text = "Autentificado com sucesso!";
                 labelUsuario.ForeColor = Color.Blue;
@@ -34,7 +50,32 @@ namespace Login
                 labelUsuario.ForeColor = Color.Red;
             }
 
-            
+
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxUsuario_TextChanged(object sender, EventArgs e)
+        {
+            //lembrar de fazer os bagulhos!!!
+            var l = textBoxUsuario.Text;
+
+            if (l == " ")
+            {
+                textBoxUsuario.Text = "";
+                return;
+            }
+
+            //if (string.)
+           // {
+            //    textBoxUsuario.Text = "";
+           //     return;
+           // }
+
 
         }
     }

@@ -74,6 +74,7 @@
             textBoxUsuario.Name = "textBoxUsuario";
             textBoxUsuario.Size = new Size(100, 23);
             textBoxUsuario.TabIndex = 3;
+            textBoxUsuario.TextChanged += textBoxUsuario_TextChanged;
             // 
             // Boxsenha
             // 
@@ -88,10 +89,11 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(174, 27);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(455, 221);
+            pictureBox1.Size = new Size(455, 202);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // labelUsuario
             // 
