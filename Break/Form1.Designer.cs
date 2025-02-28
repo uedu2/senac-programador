@@ -102,7 +102,7 @@
             this.Player.BackColor = System.Drawing.Color.White;
             this.Player.Location = new System.Drawing.Point(391, 498);
             this.Player.Name = "Player";
-            this.Player.Size = new System.Drawing.Size(100, 21);
+            this.Player.Size = new System.Drawing.Size(46, 21);
             this.Player.TabIndex = 1;
             this.Player.TabStop = false;
             // 
