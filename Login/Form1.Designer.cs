@@ -36,8 +36,8 @@
             Boxsenha = new TextBox();
             pictureBox1 = new PictureBox();
             labelUsuario = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            novonome = new TextBox();
+            novasenha = new TextBox();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
@@ -115,19 +115,20 @@
             labelUsuario.Size = new Size(0, 15);
             labelUsuario.TabIndex = 6;
             // 
-            // textBox1
+            // novonome
             // 
-            textBox1.Location = new Point(900, 139);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(198, 23);
-            textBox1.TabIndex = 7;
+            novonome.Location = new Point(900, 139);
+            novonome.Name = "novonome";
+            novonome.Size = new Size(198, 23);
+            novonome.TabIndex = 7;
+            novonome.TextChanged += textBox1_TextChanged;
             // 
-            // textBox2
+            // novasenha
             // 
-            textBox2.Location = new Point(900, 180);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(198, 23);
-            textBox2.TabIndex = 8;
+            novasenha.Location = new Point(900, 180);
+            novasenha.Name = "novasenha";
+            novasenha.Size = new Size(198, 23);
+            novasenha.TabIndex = 8;
             // 
             // label3
             // 
@@ -164,6 +165,7 @@
             button2.Size = new Size(22, 23);
             button2.TabIndex = 12;
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // pictureBox2
             // 
@@ -211,8 +213,8 @@
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(novasenha);
+            Controls.Add(novonome);
             Controls.Add(labelUsuario);
             Controls.Add(Boxsenha);
             Controls.Add(textBoxUsuario);
@@ -241,8 +243,8 @@
         private TextBox Boxsenha;
         private PictureBox pictureBox1;
         private Label labelUsuario;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox novonome;
+        private TextBox novasenha;
         private Label label3;
         private Label label4;
         private Label label5;

@@ -110,5 +110,34 @@ namespace Login
         {
 
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string novo_usuario = novonome.Text, nova_senha = novasenha.Text;
+            bool usuario_encontrado = false;
+
+            for (int i = 0; i < listadeusuarios.Count; i++) 
+            {
+                if (novo_usuario == listadeusuarios[i])
+                {
+                    usuario_encontrado = true;
+                }
+            }
+            if (usuario_encontrado == false)
+            {
+                listadeusuarios.Add(novo_usuario);
+                listsenha.Add(nova_senha);
+
+            }
+            else 
+            {
+                
+            }
+        }
     }
 }

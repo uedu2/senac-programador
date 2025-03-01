@@ -13,7 +13,7 @@ namespace Break
     public partial class Form1 : Form
     {
 
-        bool goleft, goright, isgameover;
+        bool goleft, goright, isgameover, x;
 
         int score, ballx, bally, playerSpeed;
 
@@ -87,7 +87,19 @@ namespace Break
                     ballx = rnd.Next(5, 12);
                 }
             }
+            if (x ==true)
+            {
+                bally = rnd.Next(5, 12) * -1;
 
+                if (ballx < 0)
+                {
+                    ballx = rnd.Next(5, 12) * -1;
+                }
+                else
+                {
+                    ballx = rnd.Next(5, 12);
+                }
+            }
             foreach (Control x in this.Controls) 
             {
                 if (x is PictureBox && (string)x.Tag == "Tijooj")
@@ -126,6 +138,10 @@ namespace Break
             {
                 goright = true;
             }
+            if (e.KeyCode == Keys.X)
+            {
+                x = true;
+            }
         }
 
         private void Keyisup(object sender, KeyEventArgs e)
@@ -137,6 +153,10 @@ namespace Break
             if (e.KeyCode == Keys.Right)
             {
                 goright = false;
+            }
+            if (e.KeyCode == Keys.X)
+            {
+                x = false;
             }
         }
     }
