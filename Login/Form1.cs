@@ -3,7 +3,11 @@ namespace Login
     public partial class Form1 : Form
     {
         List<string> listadeusuarios = new List<string>() { "jessica", "wesley", "lucas" };
-        List<string> listsenha = new List<string>() { "321", "123", "111" };
+        List<string> listsenha = new List<string>() { "Lucas23!", "Biw@w2000", "42Vida!!" };
+        List<string> chara = new List<string>() { "@","!","#","$","%","&","*","(",")","_","-","=","+","?" };
+        List<string> numb = new List<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",};
+        List<string> letra = new List<string>() { "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f","g","h","j","k","l","ç","z","x","c","v","b","n","m" };
+        List<string> LETRA = new List<string>() { "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "Ç", "Z", "X", "C", "V", "B", "N", "M" };
 
         public Form1()
         {
@@ -66,7 +70,7 @@ namespace Login
                 labelUsuario.Text = "Senha ou nome incorretos!";
                 labelUsuario.ForeColor = Color.Red;
             }
-
+            
 
 
         }
@@ -87,11 +91,11 @@ namespace Login
                 return;
             }
 
-            //if (string.)
-            // {
-            //    textBoxUsuario.Text = "";
-            //     return;
-            // }
+            /*if (textBoxUsuario.Text.Contains(" "))
+             {
+                textBoxUsuario.Text = "";
+                 return;
+             }*/
 
 
         }
@@ -118,10 +122,89 @@ namespace Login
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string novo_usuario = novonome.Text, nova_senha = novasenha.Text;
-            bool usuario_encontrado = false;
 
-            for (int i = 0; i < listadeusuarios.Count; i++) 
+            string novo_usuario = novonome.Text, nova_senha = novasenha.Text;
+            bool usuario_encontrado = false, characterue = false, numbtrue = false, letratrue = false, LETRAtrue = false;
+
+            //continue;
+            if (nova_senha.Length < 8)
+            {
+                aut.Text = "no minimo 8 caracteres";
+                return;
+
+            }
+            if (nova_senha.Contains (" "))
+            {
+                aut.Text = "não pode conter espaços!";
+                return;
+            }
+
+           
+
+            string encharar = novasenha.Text;
+
+            for (int i = 0; i < chara.Count; i++)//
+            {
+                if (encharar.Contains(chara[i]))
+                {
+                    characterue = true;
+                }
+            }
+            
+            if (!characterue) 
+            {
+                aut.Text = "não tem o character"; 
+                return ;
+            }
+
+
+            for (int i = 0; i < numb.Count; i++)//
+            {
+                if (encharar.Contains(numb[i]))
+                {
+                    numbtrue = true;
+                }
+            }
+            
+            if (!numbtrue)
+            {
+                aut.Text = "não tem o numeros";
+                return;
+            }
+
+
+            for (int i = 0; i < letra.Count; i++)//
+            {
+                if (encharar.Contains(letra[i]))
+                {
+                    letratrue = true;
+                }
+            }
+            
+            if (!letratrue)
+            {
+                aut.Text = "não tem letras min";
+                return;
+            }
+
+
+            for (int i = 0; i < LETRA.Count; i++)//
+            {
+                if (encharar.Contains(LETRA[i]))
+                {
+                    LETRAtrue = true;
+                }
+            }
+            
+            if (!LETRAtrue)
+            {
+                aut.Text = "não letras mai";
+                return ;
+            }
+
+
+
+            for (int i = 0; i < listadeusuarios.Count; i++)
             {
                 if (novo_usuario == listadeusuarios[i])
                 {
@@ -134,10 +217,25 @@ namespace Login
                 listsenha.Add(nova_senha);
 
             }
-            else 
+            else
             {
-                
+
             }
+        }
+
+        private void Boxsenha_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void novasenha_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

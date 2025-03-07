@@ -44,11 +44,10 @@
             button2 = new Button();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
-            pictureBox4 = new PictureBox();
+            aut = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -94,6 +93,7 @@
             Boxsenha.Name = "Boxsenha";
             Boxsenha.Size = new Size(100, 23);
             Boxsenha.TabIndex = 4;
+            Boxsenha.TextChanged += Boxsenha_TextChanged;
             // 
             // pictureBox1
             // 
@@ -129,6 +129,7 @@
             novasenha.Name = "novasenha";
             novasenha.Size = new Size(198, 23);
             novasenha.TabIndex = 8;
+            novasenha.TextChanged += novasenha_TextChanged;
             // 
             // label3
             // 
@@ -189,17 +190,15 @@
             pictureBox3.TabIndex = 14;
             pictureBox3.TabStop = false;
             // 
-            // pictureBox4
+            // aut
             // 
-            pictureBox4.BackgroundImage = (Image)resources.GetObject("pictureBox4.BackgroundImage");
-            pictureBox4.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox4.Location = new Point(223, 364);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(993, 89);
-            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox4.TabIndex = 15;
-            pictureBox4.TabStop = false;
-            pictureBox4.Click += pictureBox4_Click;
+            aut.AutoSize = true;
+            aut.Location = new Point(951, 343);
+            aut.Name = "aut";
+            aut.Size = new Size(38, 15);
+            aut.TabIndex = 15;
+            aut.Text = "label6";
+            aut.Click += label6_Click;
             // 
             // Form1
             // 
@@ -207,7 +206,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(128, 255, 128);
             ClientSize = new Size(1384, 450);
-            Controls.Add(pictureBox4);
+            Controls.Add(aut);
             Controls.Add(pictureBox3);
             Controls.Add(button2);
             Controls.Add(label5);
@@ -229,7 +228,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -251,6 +249,6 @@
         private Button button2;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
-        private PictureBox pictureBox4;
+        private Label aut;
     }
 }
