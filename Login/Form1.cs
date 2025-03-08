@@ -2,16 +2,21 @@ namespace Login
 {
     public partial class Form1 : Form
     {
-        List<string> listadeusuarios = new List<string>() { "jessica", "wesley", "lucas" };
-        List<string> listsenha = new List<string>() { "Lucas23!", "Biw@w2000", "42Vida!!" };
+       
         List<string> chara = new List<string>() { "@","!","#","$","%","&","*","(",")","_","-","=","+","?" };
         List<string> numb = new List<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",};
         List<string> letra = new List<string>() { "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f","g","h","j","k","l","ç","z","x","c","v","b","n","m" };
         List<string> LETRA = new List<string>() { "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "Ç", "Z", "X", "C", "V", "B", "N", "M" };
 
+
+        List<Usuario> usuarios = new List<Usuario>();
+
         public Form1()
         {
             InitializeComponent();
+            usuarios.Add(new Usuario() { Email = "jessica@email.com", Senha = "Lucas23!" });
+            usuarios.Add(new Usuario() { Email = "wesley@email.com", Senha = "Biw@w2000" }y);
+            usuarios.Add(new Usuario() { Email = "lucas@email.com", Senha = "42Vida!!" });
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -38,8 +43,6 @@ namespace Login
                 return;
             }
 
-
-
             if (string.IsNullOrWhiteSpace(senha))
             {
                 labelUsuario.Text = "Senha é obrigatório!";
@@ -47,15 +50,15 @@ namespace Login
                 return;
             }
 
+            bool autentificado = false;
+
             int posicaousuarioencontrado = -1;
 
-
-
-            for (int i = 0; i < listadeusuarios.Count; i++)
+            for (int i = 0; i < usuarios.Count; i++)
             {
-                if (usuariobuscado == listadeusuarios[i])
+                if (usuarios[i].Email == usuariobuscado && usuarios[i].Senha == senha)
                 {
-                    posicaousuarioencontrado = i;
+                    autentificado = true;
                 }
             }
 
