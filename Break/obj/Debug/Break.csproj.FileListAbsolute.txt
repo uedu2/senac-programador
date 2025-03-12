@@ -18,3 +18,4 @@ C:\Users\eduardo.glira\programador\senac-programador\Break\obj\Debug\Break.cspro
 C:\Users\eduardo.glira\programador\senac-programador\Break\obj\Debug\Breakdance.exe
 C:\Users\eduardo.glira\programador\senac-programador\Break\obj\Debug\Breakdance.pdb
 C:\Users\eduardo.glira\programador\senac-programador\Break\bin\Debug\Breakdance.pdb
+C:\Users\eduardo.glira\programador\senac-programador\Break\obj\Debug\Breakdance.Anuncio.resources

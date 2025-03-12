@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Breakdance;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +20,15 @@ namespace Break
 
         Random rnd = new Random();
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+            // Crie uma nova instância do Form2
+            Anuncio form2 = new Anuncio();
+
+            // Mostre o Form2
+            form2.Show();
+            this.Hide();
+        }
 
         public Form1()
         {

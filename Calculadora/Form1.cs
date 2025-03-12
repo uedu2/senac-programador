@@ -6,7 +6,8 @@ namespace Calculadora
         {
 
             InitializeComponent();
-           
+
+
         }
 
         private void numero2_TextChanged(object sender, EventArgs e)
@@ -109,6 +110,86 @@ namespace Calculadora
             form2.Show();
             this.Hide();
 
+        }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            simbolo.Text = checkedListBox1.Text.ToString();
+            
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            if (simbolo.Text == "+")
+            {
+                double.TryParse(Numero1.Text, out double num1);
+                double.TryParse(numero2.Text, out double num2);
+                if (!Numero1.Text.All(char.IsNumber) || !numero2.Text.All(char.IsNumber))
+                {
+                    resultado.Text = "ambos os valores precisam ser números!";
+                    numero2.Clear();
+                    Numero1.Clear();
+                    return;
+                }
+
+                double num3 = num1 + num2;
+                resultado.Text = "" + num3;
+                numero2.Clear();
+                Numero1.Clear();
+            }
+            else if (simbolo.Text == "-")
+            {
+                double.TryParse(Numero1.Text, out double num1);
+                double.TryParse(numero2.Text, out double num2);
+                if (!Numero1.Text.All(char.IsNumber) || !numero2.Text.All(char.IsNumber))
+                {
+                    resultado.Text = "ambos os valores precisam ser números!";
+                    numero2.Clear();
+                    Numero1.Clear();
+                    return;
+                }
+
+                double num3 = num1 - num2;
+                resultado.Text = "" + num3;
+                numero2.Clear();
+                Numero1.Clear();
+            }
+            else if (simbolo.Text == "*") 
+            {
+                double.TryParse(Numero1.Text, out double num1);
+                double.TryParse(numero2.Text, out double num2);
+                if (!Numero1.Text.All(char.IsNumber) || !numero2.Text.All(char.IsNumber))
+                {
+                    resultado.Text = "ambos os valores precisam ser números!";
+                    numero2.Clear();
+                    Numero1.Clear();
+                    return;
+                }
+
+                double num3 = num1 * num2;
+                resultado.Text = "" + num3;
+                numero2.Clear();
+                Numero1.Clear();
+            }
+            else if (simbolo.Text == "/")
+            {
+                double.TryParse(Numero1.Text, out double num1);
+                double.TryParse(numero2.Text, out double num2);
+                if (!Numero1.Text.All(char.IsNumber) || !numero2.Text.All(char.IsNumber))
+                {
+                    resultado.Text = "ambos os valores precisam ser números!";
+                    numero2.Clear();
+                    Numero1.Clear();
+                    return;
+                }
+
+                double num3 = num1 / num2;
+                resultado.Text = "" + num3;
+                numero2.Clear();
+                Numero1.Clear();
+            }
         }
     }
 }

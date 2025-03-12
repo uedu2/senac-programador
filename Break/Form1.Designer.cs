@@ -385,6 +385,7 @@
             this.label1.Size = new System.Drawing.Size(15, 13);
             this.label1.TabIndex = 28;
             this.label1.Text = "X";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // Form1
             // 
