@@ -37,6 +37,10 @@
             altura = new TextBox();
             largura = new TextBox();
             resultado = new Label();
+            quadrado = new RadioButton();
+            retangulo = new RadioButton();
+            cubo = new RadioButton();
+            paralelepipedo = new RadioButton();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -118,6 +122,7 @@
             // 
             // altura
             // 
+            altura.Enabled = false;
             altura.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
             altura.Location = new Point(322, 275);
             altura.Name = "altura";
@@ -128,6 +133,7 @@
             // 
             // largura
             // 
+            largura.Enabled = false;
             largura.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
             largura.Location = new Point(173, 275);
             largura.Name = "largura";
@@ -147,12 +153,64 @@
             resultado.Text = "RESULTADO";
             resultado.Click += resultado_Click;
             // 
+            // quadrado
+            // 
+            quadrado.AutoSize = true;
+            quadrado.Location = new Point(31, 65);
+            quadrado.Name = "quadrado";
+            quadrado.Size = new Size(76, 19);
+            quadrado.TabIndex = 5;
+            quadrado.TabStop = true;
+            quadrado.Text = "quadrado";
+            quadrado.UseVisualStyleBackColor = true;
+            quadrado.CheckedChanged += quadrado_CheckedChanged;
+            // 
+            // retangulo
+            // 
+            retangulo.AutoSize = true;
+            retangulo.Location = new Point(31, 90);
+            retangulo.Name = "retangulo";
+            retangulo.Size = new Size(76, 19);
+            retangulo.TabIndex = 6;
+            retangulo.TabStop = true;
+            retangulo.Text = "retangulo";
+            retangulo.UseVisualStyleBackColor = true;
+            retangulo.CheckedChanged += retangulo_CheckedChanged;
+            // 
+            // cubo
+            // 
+            cubo.AutoSize = true;
+            cubo.Location = new Point(31, 115);
+            cubo.Name = "cubo";
+            cubo.Size = new Size(52, 19);
+            cubo.TabIndex = 7;
+            cubo.TabStop = true;
+            cubo.Text = "cubo";
+            cubo.UseVisualStyleBackColor = true;
+            cubo.CheckedChanged += cubo_CheckedChanged;
+            // 
+            // paralelepipedo
+            // 
+            paralelepipedo.AutoSize = true;
+            paralelepipedo.Location = new Point(31, 140);
+            paralelepipedo.Name = "paralelepipedo";
+            paralelepipedo.Size = new Size(103, 19);
+            paralelepipedo.TabIndex = 8;
+            paralelepipedo.TabStop = true;
+            paralelepipedo.Text = "paralelepipedo";
+            paralelepipedo.UseVisualStyleBackColor = true;
+            paralelepipedo.CheckedChanged += paralelepipedo_CheckedChanged;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(852, 572);
+            Controls.Add(paralelepipedo);
+            Controls.Add(cubo);
+            Controls.Add(retangulo);
+            Controls.Add(quadrado);
             Controls.Add(resultado);
             Controls.Add(largura);
             Controls.Add(altura);
@@ -177,5 +235,9 @@
         private TextBox altura;
         private TextBox largura;
         private Label resultado;
+        private RadioButton quadrado;
+        private RadioButton retangulo;
+        private RadioButton cubo;
+        private RadioButton paralelepipedo;
     }
 }

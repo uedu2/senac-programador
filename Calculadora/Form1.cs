@@ -1,3 +1,5 @@
+using System.Buffers.Text;
+
 namespace Calculadora
 {
     public partial class Form1 : Form
@@ -29,16 +31,11 @@ namespace Calculadora
         {
             double.TryParse(Numero1.Text, out double num1);
             double.TryParse(numero2.Text, out double num2);
-            if (!Numero1.Text.All(char.IsNumber) || !numero2.Text.All(char.IsNumber))
-            {
-                resultado.Text = "ambos os valores precisam ser números!";
-                numero2.Clear();
-                Numero1.Clear();
-                return;
-            }
 
             double num3 = num1 + num2;
-            resultado.Text = "" + num3;
+            string resul = Numero1.Text.All(char.IsNumber) || numero2.Text.All(char.IsNumber) ? "" + num3 : "ambos os valores precisam ser números!";
+            
+            resultado.Text = resul;
             numero2.Clear();
             Numero1.Clear();
         }
@@ -51,16 +48,11 @@ namespace Calculadora
         {
             double.TryParse(Numero1.Text, out double num1);
             double.TryParse(numero2.Text, out double num2);
-            if (!Numero1.Text.All(char.IsNumber) || !numero2.Text.All(char.IsNumber))
-            {
-                resultado.Text = "ambos os valores precisam ser números!";
-                numero2.Clear();
-                Numero1.Clear();
-                return;
-            }
 
             double num3 = num1 - num2;
-            resultado.Text = "" + num3;
+            string resul = Numero1.Text.All(char.IsNumber) || numero2.Text.All(char.IsNumber) ? "" + num3 : "ambos os valores precisam ser números!";
+            
+            resultado.Text = resul;
             numero2.Clear();
             Numero1.Clear();
         }
@@ -69,16 +61,11 @@ namespace Calculadora
         {
             double.TryParse(Numero1.Text, out double num1);
             double.TryParse(numero2.Text, out double num2);
-            if (!Numero1.Text.All(char.IsNumber) || !numero2.Text.All(char.IsNumber))
-            {
-                resultado.Text = "ambos os valores precisam ser números!";
-                numero2.Clear();
-                Numero1.Clear();
-                return;
-            }
 
             double num3 = num1 / num2;
-            resultado.Text = "" + num3;
+            string resul = Numero1.Text.All(char.IsNumber) || numero2.Text.All(char.IsNumber) ? "" + num3 : "ambos os valores precisam ser números!";
+            
+            resultado.Text = resul;
             numero2.Clear();
             Numero1.Clear();
         }
@@ -87,16 +74,11 @@ namespace Calculadora
         {
             double.TryParse(Numero1.Text, out double num1);
             double.TryParse(numero2.Text, out double num2);
-            if (!Numero1.Text.All(char.IsNumber) || !numero2.Text.All(char.IsNumber))
-            {
-                resultado.Text = "ambos os valores precisam ser números!";
-                numero2.Clear();
-                Numero1.Clear();
-                return;
-            }
 
             double num3 = num1 * num2;
-            resultado.Text = "" + num3;
+            string resul = Numero1.Text.All(char.IsNumber) || numero2.Text.All(char.IsNumber) ? "" + num3 : "ambos os valores precisam ser números!";
+            
+            resultado.Text = resul;
             numero2.Clear();
             Numero1.Clear();
         }
@@ -107,8 +89,8 @@ namespace Calculadora
             Form2 form2 = new Form2();
 
             // Mostre o Form2
-            form2.Show();
-            this.Hide();
+            form2.ShowDialog();
+            //this.Hide();
 
         }
 
@@ -126,16 +108,11 @@ namespace Calculadora
             {
                 double.TryParse(Numero1.Text, out double num1);
                 double.TryParse(numero2.Text, out double num2);
-                if (!Numero1.Text.All(char.IsNumber) || !numero2.Text.All(char.IsNumber))
-                {
-                    resultado.Text = "ambos os valores precisam ser números!";
-                    numero2.Clear();
-                    Numero1.Clear();
-                    return;
-                }
 
                 double num3 = num1 + num2;
-                resultado.Text = "" + num3;
+                string resul = Numero1.Text.All(char.IsNumber) || numero2.Text.All(char.IsNumber) ? "" + num3 : "ambos os valores precisam ser números!";
+
+                resultado.Text = resul;
                 numero2.Clear();
                 Numero1.Clear();
             }
@@ -143,16 +120,11 @@ namespace Calculadora
             {
                 double.TryParse(Numero1.Text, out double num1);
                 double.TryParse(numero2.Text, out double num2);
-                if (!Numero1.Text.All(char.IsNumber) || !numero2.Text.All(char.IsNumber))
-                {
-                    resultado.Text = "ambos os valores precisam ser números!";
-                    numero2.Clear();
-                    Numero1.Clear();
-                    return;
-                }
 
                 double num3 = num1 - num2;
-                resultado.Text = "" + num3;
+                string resul = Numero1.Text.All(char.IsNumber) || numero2.Text.All(char.IsNumber) ? "" + num3 : "ambos os valores precisam ser números!";
+
+                resultado.Text = resul;
                 numero2.Clear();
                 Numero1.Clear();
             }
@@ -160,16 +132,11 @@ namespace Calculadora
             {
                 double.TryParse(Numero1.Text, out double num1);
                 double.TryParse(numero2.Text, out double num2);
-                if (!Numero1.Text.All(char.IsNumber) || !numero2.Text.All(char.IsNumber))
-                {
-                    resultado.Text = "ambos os valores precisam ser números!";
-                    numero2.Clear();
-                    Numero1.Clear();
-                    return;
-                }
-
+               
                 double num3 = num1 * num2;
-                resultado.Text = "" + num3;
+                string resul = Numero1.Text.All(char.IsNumber) || numero2.Text.All(char.IsNumber) ? "" + num3 : "ambos os valores precisam ser números!";
+
+                resultado.Text = resul;
                 numero2.Clear();
                 Numero1.Clear();
             }
@@ -177,16 +144,11 @@ namespace Calculadora
             {
                 double.TryParse(Numero1.Text, out double num1);
                 double.TryParse(numero2.Text, out double num2);
-                if (!Numero1.Text.All(char.IsNumber) || !numero2.Text.All(char.IsNumber))
-                {
-                    resultado.Text = "ambos os valores precisam ser números!";
-                    numero2.Clear();
-                    Numero1.Clear();
-                    return;
-                }
-
+                
                 double num3 = num1 / num2;
-                resultado.Text = "" + num3;
+                string resul = Numero1.Text.All(char.IsNumber) || numero2.Text.All(char.IsNumber) ? "" + num3 : "ambos os valores precisam ser números!";
+
+                resultado.Text = resul;
                 numero2.Clear();
                 Numero1.Clear();
             }
