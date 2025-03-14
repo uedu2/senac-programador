@@ -117,7 +117,6 @@
             base_.Name = "base_";
             base_.Size = new Size(100, 50);
             base_.TabIndex = 1;
-            base_.Text = "A";
             base_.TextChanged += base__TextChanged;
             // 
             // altura
@@ -128,7 +127,7 @@
             altura.Name = "altura";
             altura.Size = new Size(100, 50);
             altura.TabIndex = 2;
-            altura.Text = "C";
+            altura.Visible = false;
             altura.TextChanged += altura_TextChanged;
             // 
             // largura
@@ -139,7 +138,7 @@
             largura.Name = "largura";
             largura.Size = new Size(100, 50);
             largura.TabIndex = 3;
-            largura.Text = "B";
+            largura.Visible = false;
             largura.TextChanged += largura_TextChanged;
             // 
             // resultado
@@ -151,6 +150,7 @@
             resultado.Size = new Size(189, 45);
             resultado.TabIndex = 4;
             resultado.Text = "RESULTADO";
+            resultado.Visible = false;
             resultado.Click += resultado_Click;
             // 
             // quadrado

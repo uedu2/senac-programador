@@ -29,20 +29,25 @@ namespace Calculadora
 
             if (volume == true)
             {
+                altura.Visible = true;
                 altura.Enabled = true;
             }
             if (volume == false)
             {
+                altura.Visible = false;
                 altura.Enabled = false;
             }
             if (massa == true)
             {
+                largura.Visible = true;
                 largura.Enabled = true;
             }
             if (massa == false)
             {
+                largura.Visible = false;
                 largura.Enabled = false;
             }
+            
         }
 
 
@@ -56,7 +61,7 @@ namespace Calculadora
             {
                 double num4 = num1 * num1 * num1;
                 string resul = base_.Text.All(char.IsNumber) ? "" + num4 : "ambos os valores precisam ser números!";
-
+                resultado.Visible = true;
                 resultado.Text = resul;
             }
 
@@ -64,7 +69,7 @@ namespace Calculadora
             {
                 double num4 = num1 * num2 * num3;
                 string resul = base_.Text.All(char.IsNumber) ? "" + num4 : "ambos os valores precisam ser números!";
-
+                resultado.Visible = true;
                 resultado.Text = resul;
             }
             
@@ -83,14 +88,14 @@ namespace Calculadora
 
                 double num3 = num1 * 4;
                 string resul = base_.Text.All(char.IsNumber) ? "" + num3 : "ambos os valores precisam ser números!";
-
+                resultado.Visible = true;
                 resultado.Text = resul;
             }
             if (retangulo.Checked)
             {
                 double num3 =  2 * (num1 + num2);
                 string resul = base_.Text.All(char.IsNumber) ? "" + num3 : "ambos os valores precisam ser números!";
-
+                resultado.Visible = true;
                 resultado.Text = resul;
             }
             if (cubo.Checked)
@@ -98,7 +103,7 @@ namespace Calculadora
 
                 double num3 = 12 * (num1);
                 string resul = base_.Text.All(char.IsNumber) ? "" + num3 : "ambos os valores precisam ser números!";
-
+                resultado.Visible = true;
                 resultado.Text = resul;
             }
             if (paralelepipedo.Checked) 
@@ -106,7 +111,7 @@ namespace Calculadora
 
                 double num3 = (4 * num1) + (4 * num2) + (4 * num4);
                 string resul = base_.Text.All(char.IsNumber) ? "" + num3 : "ambos os valores precisam ser números!";
-
+                resultado.Visible = true;
                 resultado.Text = resul;
 
                 
@@ -128,14 +133,14 @@ namespace Calculadora
             {
                 double num3 = num1 * num1;
                 string resul = base_.Text.All(char.IsNumber) ? "" + num3 : "ambos os valores precisam ser números!";
-
+                resultado.Visible = true;
                 resultado.Text = resul;
             }
             if (retangulo.Checked)
             {
                 double num3 = num1 * num2;
                 string resul = base_.Text.All(char.IsNumber) ? "" + num3 : "ambos os valores precisam ser números!";
-
+                resultado.Visible = true;
                 resultado.Text = resul;
 
             }
@@ -143,7 +148,7 @@ namespace Calculadora
             {
                 double num3 = (num1 * num1) * 6;
                 string resul = base_.Text.All(char.IsNumber) ? "" + num3 : "ambos os valores precisam ser números!";
-
+                resultado.Visible = true;
                 resultado.Text = resul;
 
             }
@@ -153,6 +158,7 @@ namespace Calculadora
                 double num5 =  2 * ((num1 * num2) +(num1 * num4) + (num2 * num4));
                 
                 string resul = base_.Text.All(char.IsNumber) ? "" + num5 : "ambos os valores precisam ser números!";
+                resultado.Visible = true;
                 resultado.Text = resul;
             }
 

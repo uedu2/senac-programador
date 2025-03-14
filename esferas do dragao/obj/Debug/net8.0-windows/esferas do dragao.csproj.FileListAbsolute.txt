@@ -1,0 +1,17 @@
+C:\Users\eduardo.glira\programador\senac-programador\esferas do dragao\bin\Debug\net8.0-windows\esferas do dragao.exe
+C:\Users\eduardo.glira\programador\senac-programador\esferas do dragao\bin\Debug\net8.0-windows\esferas do dragao.deps.json
+C:\Users\eduardo.glira\programador\senac-programador\esferas do dragao\bin\Debug\net8.0-windows\esferas do dragao.runtimeconfig.json
+C:\Users\eduardo.glira\programador\senac-programador\esferas do dragao\bin\Debug\net8.0-windows\esferas do dragao.dll
+C:\Users\eduardo.glira\programador\senac-programador\esferas do dragao\bin\Debug\net8.0-windows\esferas do dragao.pdb
+C:\Users\eduardo.glira\programador\senac-programador\esferas do dragao\obj\Debug\net8.0-windows\esferas_do_dragao.Form1.resources
+C:\Users\eduardo.glira\programador\senac-programador\esferas do dragao\obj\Debug\net8.0-windows\esferas do dragao.csproj.GenerateResource.cache
+C:\Users\eduardo.glira\programador\senac-programador\esferas do dragao\obj\Debug\net8.0-windows\esferas do dragao.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eduardo.glira\programador\senac-programador\esferas do dragao\obj\Debug\net8.0-windows\esferas do dragao.AssemblyInfoInputs.cache
+C:\Users\eduardo.glira\programador\senac-programador\esferas do dragao\obj\Debug\net8.0-windows\esferas do dragao.AssemblyInfo.cs
+C:\Users\eduardo.glira\programador\senac-programador\esferas do dragao\obj\Debug\net8.0-windows\esferas do dragao.csproj.CoreCompileInputs.cache
+C:\Users\eduardo.glira\programador\senac-programador\esferas do dragao\obj\Debug\net8.0-windows\esferas do dragao.sourcelink.json
+C:\Users\eduardo.glira\programador\senac-programador\esferas do dragao\obj\Debug\net8.0-windows\esferas do dragao.dll
+C:\Users\eduardo.glira\programador\senac-programador\esferas do dragao\obj\Debug\net8.0-windows\refint\esferas do dragao.dll
+C:\Users\eduardo.glira\programador\senac-programador\esferas do dragao\obj\Debug\net8.0-windows\esferas do dragao.pdb
+C:\Users\eduardo.glira\programador\senac-programador\esferas do dragao\obj\Debug\net8.0-windows\esferas do dragao.genruntimeconfig.cache
+C:\Users\eduardo.glira\programador\senac-programador\esferas do dragao\obj\Debug\net8.0-windows\ref\esferas do dragao.dll
