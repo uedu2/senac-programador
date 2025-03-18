@@ -1,0 +1,17 @@
+C:\Users\eduardo.glira\programador\senac-programador\CadastroClientes\bin\Debug\net8.0-windows\CadastroClientes.exe
+C:\Users\eduardo.glira\programador\senac-programador\CadastroClientes\bin\Debug\net8.0-windows\CadastroClientes.deps.json
+C:\Users\eduardo.glira\programador\senac-programador\CadastroClientes\bin\Debug\net8.0-windows\CadastroClientes.runtimeconfig.json
+C:\Users\eduardo.glira\programador\senac-programador\CadastroClientes\bin\Debug\net8.0-windows\CadastroClientes.dll
+C:\Users\eduardo.glira\programador\senac-programador\CadastroClientes\bin\Debug\net8.0-windows\CadastroClientes.pdb
+C:\Users\eduardo.glira\programador\senac-programador\CadastroClientes\obj\Debug\net8.0-windows\CadastroClientes.Form1.resources
+C:\Users\eduardo.glira\programador\senac-programador\CadastroClientes\obj\Debug\net8.0-windows\CadastroClientes.csproj.GenerateResource.cache
+C:\Users\eduardo.glira\programador\senac-programador\CadastroClientes\obj\Debug\net8.0-windows\CadastroClientes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eduardo.glira\programador\senac-programador\CadastroClientes\obj\Debug\net8.0-windows\CadastroClientes.AssemblyInfoInputs.cache
+C:\Users\eduardo.glira\programador\senac-programador\CadastroClientes\obj\Debug\net8.0-windows\CadastroClientes.AssemblyInfo.cs
+C:\Users\eduardo.glira\programador\senac-programador\CadastroClientes\obj\Debug\net8.0-windows\CadastroClientes.csproj.CoreCompileInputs.cache
+C:\Users\eduardo.glira\programador\senac-programador\CadastroClientes\obj\Debug\net8.0-windows\CadastroClientes.sourcelink.json
+C:\Users\eduardo.glira\programador\senac-programador\CadastroClientes\obj\Debug\net8.0-windows\CadastroClientes.dll
+C:\Users\eduardo.glira\programador\senac-programador\CadastroClientes\obj\Debug\net8.0-windows\refint\CadastroClientes.dll
+C:\Users\eduardo.glira\programador\senac-programador\CadastroClientes\obj\Debug\net8.0-windows\CadastroClientes.pdb
+C:\Users\eduardo.glira\programador\senac-programador\CadastroClientes\obj\Debug\net8.0-windows\CadastroClientes.genruntimeconfig.cache
+C:\Users\eduardo.glira\programador\senac-programador\CadastroClientes\obj\Debug\net8.0-windows\ref\CadastroClientes.dll
