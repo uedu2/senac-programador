@@ -15,7 +15,7 @@ namespace CadastroClientes
        public Etinia Etinia { get; set; }
         public bool Estrangeiro { get; set; }
        public TipoCliente TipoCliente { get; set; }
-
+       
     }
 
 }
