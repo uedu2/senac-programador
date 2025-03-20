@@ -253,7 +253,7 @@
             // 
             ComboBoxEtinia.Anchor = AnchorStyles.None;
             ComboBoxEtinia.FormattingEnabled = true;
-            ComboBoxEtinia.Items.AddRange(new object[] { "Branco", "Negro", "Pardo", "Asiatico" });
+            ComboBoxEtinia.Items.AddRange(new object[] { "Branco", "Negro", "Pardo", "Asiatico", "Indigena" });
             ComboBoxEtinia.Location = new Point(47, 444);
             ComboBoxEtinia.Name = "ComboBoxEtinia";
             ComboBoxEtinia.Size = new Size(121, 23);
@@ -288,8 +288,9 @@
             // ComboBoxGenero
             // 
             ComboBoxGenero.Anchor = AnchorStyles.None;
+            ComboBoxGenero.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             ComboBoxGenero.FormattingEnabled = true;
-            ComboBoxGenero.Items.AddRange(new object[] { "Feminino", "Masculino", "Outro" });
+            ComboBoxGenero.Items.AddRange(new object[] { "Masculino", "Feminino", "Outro" });
             ComboBoxGenero.Location = new Point(47, 303);
             ComboBoxGenero.Name = "ComboBoxGenero";
             ComboBoxGenero.Size = new Size(121, 23);
@@ -349,11 +350,11 @@
             // 
             CheckBoxEstrangeiroSim.Anchor = AnchorStyles.None;
             CheckBoxEstrangeiroSim.AutoSize = true;
-            CheckBoxEstrangeiroSim.Location = new Point(66, 27);
+            CheckBoxEstrangeiroSim.Location = new Point(84, 27);
             CheckBoxEstrangeiroSim.Name = "CheckBoxEstrangeiroSim";
-            CheckBoxEstrangeiroSim.Size = new Size(83, 19);
+            CheckBoxEstrangeiroSim.Size = new Size(46, 19);
             CheckBoxEstrangeiroSim.TabIndex = 0;
-            CheckBoxEstrangeiroSim.Text = "checkBox1";
+            CheckBoxEstrangeiroSim.Text = "Sim";
             CheckBoxEstrangeiroSim.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel8

@@ -1,23 +1,13 @@
 using CadastroClientes.Dados;
-
+using CadastroClientes.NovosDados;
 namespace CadastroClientes
 {
     public partial class Form1 : Form
     {
         List<Cliente> clientes = new List<Cliente>();
-
-
+        List<string> generos = new List<string>() {"macaco"};
         
-
-        public class NovoClienteDados
-        {
-            public string Nome { get; set; }
-            public string DataDeNascimento { get; set; }
-            public string Telefone { get; set; }
-            public string Email { get; set; }
-            public string NomeSocial { get; set; }
-        }
-        public NovoClienteDados Novos_Dados()
+        public NovoClienteDados Novos_Dados() // metodo para pegar os dados do novo cliente
         {
             return new NovoClienteDados
             {
@@ -29,7 +19,7 @@ namespace CadastroClientes
             };
         }
 
-        public bool verificador()
+        public bool Verificador_NovoCliente() // metodo para verificar se os campos do novo cliente est�o preenchidos corretamente
         {
             //nome
             string Novo_Nome = TextBoxNome.Text;
@@ -125,6 +115,20 @@ namespace CadastroClientes
                 return false;
             }
 
+            //genero
+            string Novo_Genero = ComboBoxGenero.Text;
+            if (string.IsNullOrWhiteSpace(Novo_Genero))
+            {
+                label1.Text = "Selecione um genero!";
+                return false;
+            }
+
+            //etinia
+
+            //estrangeiro
+
+            //tipo
+
 
 
             return true;
@@ -135,6 +139,7 @@ namespace CadastroClientes
             string Novo_DataDeNascimento = TextBoxData.Text;
             string Novo_Telefone = TextBoxTelefone.Text;
             string Novo_Email = TextBoxEmail.Text;
+            string Novo_Genero = ComboBoxGenero.Text;
 
             bool encontrado = false;
 
@@ -237,59 +242,79 @@ namespace CadastroClientes
             string Novo_Telefone = TextBoxTelefone.Text;
             string Novo_Email = TextBoxEmail.Text;
             string Novo_NomeSocial = TextBoxNomeSocial.Text;
+            string Novo_Genero = ComboBoxGenero.Text;
 
             NovoClienteDados novoClienteDados = Novos_Dados();
             Endereco endereco4 = new Endereco();
             int novoId = GerarNovoId();
 
 
-            if (!verificador())
+            if (!Verificador_NovoCliente())
             {
-<<<<<<< HEAD
-=======
-                label1.Text = "não pode ser vazio";
-                return;
-            }
-            if (TextBoxData.Text == "") 
-            {
-                label1.Text = "não pode ser vazio";
-                return;
-            }
-            if (TextBoxTelefone.Text == "") 
-            {
-                label1.Text = "não pode ser vazio";
-                return;
-            }
-             if (TextBoxEmail..Text == "") 
-            {
-                label1.Text = "não pode ser vazio";
->>>>>>> 63c5450910ec95931ba5845e4c55f6eadf3c9119
                 return;
             }
 
             if (!Buscador())
             {
-                clientes.Add(new Cliente()
+                if (Novo_Genero == "Masculino") 
                 {
-                    Id = novoId,
-                    Nome = novoClienteDados.Nome,
-                    DataDeNascimento = novoClienteDados.DataDeNascimento,
-                    Telefone = novoClienteDados.Telefone,
-                    Email = novoClienteDados.Email,
-                    Endereco = endereco4,
-                    Genero = Genero.Masculino,
-                    NomeSocial = novoClienteDados.NomeSocial,
-                    Etinia = Etinia.Branco,
-                    Estrangeiro = false,
-                    TipoCliente = TipoCliente.PessoaFisica
-                });
+                    clientes.Add(new Cliente()
+                    {
+                        Id = novoId,
+                        Nome = novoClienteDados.Nome,
+                        DataDeNascimento = novoClienteDados.DataDeNascimento,
+                        Telefone = novoClienteDados.Telefone,
+                        Email = novoClienteDados.Email,
+                        Endereco = endereco4,
+                        Genero = Genero.Masculino,
+                        NomeSocial = novoClienteDados.NomeSocial,
+                        Etinia = Etinia.Branco,
+                        Estrangeiro = false,
+                        TipoCliente = TipoCliente.PessoaFisica
+                    });
+                    label1.Text = "Cliente cadastrado com sucesso!";
+                    return;
+                }
+                else if (Novo_Genero == "Feminino")
+                {
+                    clientes.Add(new Cliente()
+                    {
+                        Id = novoId,
+                        Nome = novoClienteDados.Nome,
+                        DataDeNascimento = novoClienteDados.DataDeNascimento,
+                        Telefone = novoClienteDados.Telefone,
+                        Email = novoClienteDados.Email,
+                        Endereco = endereco4,
+                        Genero = Genero.Feminino,
+                        NomeSocial = novoClienteDados.NomeSocial,
+                        Etinia = Etinia.Branco,
+                        Estrangeiro = false,
+                        TipoCliente = TipoCliente.PessoaFisica
+                    });
+                    label1.Text = "Cliente cadastrado com sucesso!";
+                    return;
+                }
+                else if (Novo_Genero == "Outro")
+                {
+                    clientes.Add(new Cliente()
+                    {
+                        Id = novoId,
+                        Nome = novoClienteDados.Nome,
+                        DataDeNascimento = novoClienteDados.DataDeNascimento,
+                        Telefone = novoClienteDados.Telefone,
+                        Email = novoClienteDados.Email,
+                        Endereco = endereco4,
+                        Genero = Genero.Outro,
+                        NomeSocial = novoClienteDados.NomeSocial,
+                        Etinia = Etinia.Branco,
+                        Estrangeiro = false,
+                        TipoCliente = TipoCliente.PessoaFisica
+                    });
+                    label1.Text = "Cliente cadastrado com sucesso!";
+                    return;
+                }
 
-                label1.Text = "Cliente cadastrado com sucesso!";
-                return;
-            }
-            else
-            {
-                
+               
             }
 
            
