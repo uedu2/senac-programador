@@ -6,6 +6,9 @@ namespace CadastroClientes
     {
         List<Cliente> clientes = new List<Cliente>();
 
+
+        
+
         public class NovoClienteDados
         {
             public string Nome { get; set; }
@@ -26,7 +29,144 @@ namespace CadastroClientes
             };
         }
 
+        public bool verificador()
+        {
+            //nome
+            string Novo_Nome = TextBoxNome.Text;
+            if (string.IsNullOrWhiteSpace(Novo_Nome))         
+            {
+                label1.Text = "NOME não pode ser vazio";
+                return false;
+            }
+            if (!Novo_Nome.Contains(" "))
+            {
+                label1.Text = "Nome Completo";
+                return false;
+            }
+            if (Novo_Nome.Any(char.IsNumber))
+            {
+                label1.Text = "Nome não pode conter numeros";
+                return false;
+            }
+            if (Novo_Nome.Any(char.IsPunctuation))
+            {
+                label1.Text = "Nome não pode conter simbolos";
+                return false;
+            }
 
+            //data
+            string Novo_DataDeNascimento = TextBoxData.Text;
+            if (string.IsNullOrWhiteSpace(Novo_DataDeNascimento))
+            {
+                label1.Text = "não pode ser vazio";
+                return false;
+            }
+            if (Novo_DataDeNascimento.Contains(" "))
+            {
+                label1.Text = "Data vazia";
+                return false;
+            }
+            if (Novo_DataDeNascimento.Length < 10)
+            {
+                label1.Text = "Data incompleta";
+                return false;
+            }
+            if (Novo_DataDeNascimento.Contains("30/02"))
+            {
+                label1.Text = "Data invalida";
+                return false;
+            }
+            if (Novo_DataDeNascimento.Contains("31/02"))
+            {
+                label1.Text = "Data invalida";
+                return false;
+            }
+          
+
+
+            //telefone
+            string Novo_Telefone = TextBoxTelefone.Text;
+            if (string.IsNullOrWhiteSpace(Novo_Telefone))
+            {
+                label1.Text = "Telefone não pode ser vazio";
+                return false;
+            }
+            if (Novo_Telefone.Length < 13)
+            {
+                label1.Text = "Telefone Incompleto!";
+                return false;
+            }
+            if (Novo_Telefone.Contains(" "))
+            {
+                label1.Text = "Telefone Incompleto!";
+                return false;
+            }
+
+            //email
+            string Novo_Email = TextBoxEmail.Text;
+            if (string.IsNullOrWhiteSpace(Novo_Email))
+            {
+                label1.Text = "não pode ser vazio";
+                return false;
+            }
+            if (!Novo_Email.Contains("@"))
+            {
+                label1.Text = "Digite um Email válido!";
+                return false;
+            }
+            if (!Novo_Email.Contains("."))
+            {
+                label1.Text = "Digite um Email válido!";
+                return false;
+            }
+            if (Novo_Email.Contains(" "))
+            {
+                label1.Text = "Email incompleto";
+                return false;
+            }
+
+
+
+            return true;
+        }
+
+        public bool Buscador() {
+            string Novo_Nome = TextBoxNome.Text;
+            string Novo_DataDeNascimento = TextBoxData.Text;
+            string Novo_Telefone = TextBoxTelefone.Text;
+            string Novo_Email = TextBoxEmail.Text;
+
+            bool encontrado = false;
+
+            for (int i = 0; i < clientes.Count; i++)
+            {
+                if (clientes[i].Email == Novo_Email)
+                {
+                    encontrado = true;
+                    label1.Text = "Cliente (Email) já cadastrado!";
+                    break;
+                }
+                if (clientes[i].Telefone == Novo_Telefone)
+                {
+                    encontrado = true;
+                    label1.Text = "Cliente (Telefone) já cadastrado!";
+                    break;
+                }
+                if (clientes[i].Id == 125)
+                {
+                    encontrado = true;
+                    label1.Text = "Cliente (ID) já cadastrado!";
+                    break;
+                }
+            }
+            return encontrado;
+
+        }
+
+        private int GerarNovoId()
+        {
+            return clientes.Max(cliente => cliente.Id) + 1;
+        }
 
         public Form1()
         {
@@ -89,30 +229,51 @@ namespace CadastroClientes
             clientes.Add(Daniel);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Botao_Cadastrar_Click(object sender, EventArgs e)
         {
+
+            string Novo_Nome = TextBoxNome.Text;
+            string Novo_DataDeNascimento = TextBoxData.Text;
+            string Novo_Telefone = TextBoxTelefone.Text;
+            string Novo_Email = TextBoxEmail.Text;
+            string Novo_NomeSocial = TextBoxNomeSocial.Text;
+
             NovoClienteDados novoClienteDados = Novos_Dados();
             Endereco endereco4 = new Endereco();
-            if (TextBoxNome.Text == "") 
+            int novoId = GerarNovoId();
+
+
+            if (!verificador())
             {
-                label1.Text = "Nome não pode ser vazio";
                 return;
             }
-            clientes.Add(new Cliente()
-            {
-                Id = 124,
-                Nome = novoClienteDados.Nome,
-                DataDeNascimento = novoClienteDados.DataDeNascimento,
-                Telefone = novoClienteDados.Telefone,
-                Email = novoClienteDados.Email,
-                Endereco = endereco4,
-                Genero = Genero.Masculino,
-                NomeSocial = novoClienteDados.NomeSocial,
-                Etinia = Etinia.Branco,
-                Estrangeiro = false,
-                TipoCliente = TipoCliente.PessoaFisica
-            });
 
+            if (!Buscador())
+            {
+                clientes.Add(new Cliente()
+                {
+                    Id = novoId,
+                    Nome = novoClienteDados.Nome,
+                    DataDeNascimento = novoClienteDados.DataDeNascimento,
+                    Telefone = novoClienteDados.Telefone,
+                    Email = novoClienteDados.Email,
+                    Endereco = endereco4,
+                    Genero = Genero.Masculino,
+                    NomeSocial = novoClienteDados.NomeSocial,
+                    Etinia = Etinia.Branco,
+                    Estrangeiro = false,
+                    TipoCliente = TipoCliente.PessoaFisica
+                });
+
+                label1.Text = "Cliente cadastrado com sucesso!";
+                return;
+            }
+            else
+            {
+                
+            }
+
+           
         }
     }
 }

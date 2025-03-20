@@ -67,7 +67,7 @@
             TextBoxLogradouro = new TextBox();
             ComboBoxEstado = new ComboBox();
             TextBoxCEP = new MaskedTextBox();
-            button1 = new Button();
+            Botao_Cadastrar = new Button();
             tableLayoutPanel6 = new TableLayoutPanel();
             label1 = new Label();
             tableLayoutPanel1.SuspendLayout();
@@ -253,6 +253,7 @@
             // 
             ComboBoxEtinia.Anchor = AnchorStyles.None;
             ComboBoxEtinia.FormattingEnabled = true;
+            ComboBoxEtinia.Items.AddRange(new object[] { "Branco", "Negro", "Pardo", "Asiatico" });
             ComboBoxEtinia.Location = new Point(47, 444);
             ComboBoxEtinia.Name = "ComboBoxEtinia";
             ComboBoxEtinia.Size = new Size(121, 23);
@@ -278,7 +279,7 @@
             // 
             TextBoxTelefone.Anchor = AnchorStyles.None;
             TextBoxTelefone.Location = new Point(57, 163);
-            TextBoxTelefone.Mask = "(99) 0000-0000";
+            TextBoxTelefone.Mask = "(99)0000-0000";
             TextBoxTelefone.Name = "TextBoxTelefone";
             TextBoxTelefone.Size = new Size(100, 23);
             TextBoxTelefone.TabIndex = 4;
@@ -288,6 +289,7 @@
             // 
             ComboBoxGenero.Anchor = AnchorStyles.None;
             ComboBoxGenero.FormattingEnabled = true;
+            ComboBoxGenero.Items.AddRange(new object[] { "Feminino", "Masculino", "Outro" });
             ComboBoxGenero.Location = new Point(47, 303);
             ComboBoxGenero.Name = "ComboBoxGenero";
             ComboBoxGenero.Size = new Size(121, 23);
@@ -539,22 +541,22 @@
             TextBoxCEP.Size = new Size(68, 23);
             TextBoxCEP.TabIndex = 6;
             // 
-            // button1
+            // Botao_Cadastrar
             // 
-            button1.Anchor = AnchorStyles.None;
-            button1.Location = new Point(182, 24);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 23;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            Botao_Cadastrar.Anchor = AnchorStyles.None;
+            Botao_Cadastrar.Location = new Point(182, 24);
+            Botao_Cadastrar.Name = "Botao_Cadastrar";
+            Botao_Cadastrar.Size = new Size(75, 23);
+            Botao_Cadastrar.TabIndex = 23;
+            Botao_Cadastrar.Text = "Cadastrar";
+            Botao_Cadastrar.UseVisualStyleBackColor = true;
+            Botao_Cadastrar.Click += Botao_Cadastrar_Click;
             // 
             // tableLayoutPanel6
             // 
             tableLayoutPanel6.ColumnCount = 1;
             tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel6.Controls.Add(button1, 0, 0);
+            tableLayoutPanel6.Controls.Add(Botao_Cadastrar, 0, 0);
             tableLayoutPanel6.Location = new Point(447, 555);
             tableLayoutPanel6.Name = "tableLayoutPanel6";
             tableLayoutPanel6.RowCount = 1;
@@ -646,7 +648,7 @@
         private ComboBox ComboBoxEstado;
         private MaskedTextBox TextBoxCEP;
         private RadioButton RadioButtonPessoaFisica;
-        private Button button1;
+        private Button Botao_Cadastrar;
         private TableLayoutPanel tableLayoutPanel6;
         private Label label1;
     }
