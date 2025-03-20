@@ -174,7 +174,7 @@ namespace CadastroClientes
             InitializeComponent();
 
             Endereco endereco1 = new Endereco();// { Logradouro = "Rua dos Bobos", Numero = "0", Complemento = 
-                                                // "Casa", Bairro = "Bairro do Limoeiro", Municipio = "Sei l·", Estado = "Gasoso", Cep = "00000-000" };
+                                                // "Casa", Bairro = "Bairro do Limoeiro", Municipio = "Sei l√°", Estado = "Gasoso", Cep = "00000-000" };
 
             Endereco endereco2 = new Endereco();
 
@@ -209,7 +209,7 @@ namespace CadastroClientes
                 Etinia = Etinia.Branco,
                 Estrangeiro = false,
                 TipoCliente = TipoCliente.PessoaFisica
-            }; //posso adicionar um item a lista desse modo. a diferenÁa deles È que o primeiro È um objeto anonimo e o segundo È um objeto nomeado.
+            }; //posso adicionar um item a lista desse modo. a diferen√ßa deles √© que o primeiro √© um objeto anonimo e o segundo √© um objeto nomeado.
             clientes.Add(Julia);
 
             Cliente Daniel = new Cliente()
@@ -245,6 +245,25 @@ namespace CadastroClientes
 
             if (!verificador())
             {
+<<<<<<< HEAD
+=======
+                label1.Text = "n√£o pode ser vazio";
+                return;
+            }
+            if (TextBoxData.Text == "") 
+            {
+                label1.Text = "n√£o pode ser vazio";
+                return;
+            }
+            if (TextBoxTelefone.Text == "") 
+            {
+                label1.Text = "n√£o pode ser vazio";
+                return;
+            }
+             if (TextBoxEmail..Text == "") 
+            {
+                label1.Text = "n√£o pode ser vazio";
+>>>>>>> 63c5450910ec95931ba5845e4c55f6eadf3c9119
                 return;
             }
 
