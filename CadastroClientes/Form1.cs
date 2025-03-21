@@ -134,20 +134,20 @@ namespace CadastroClientes
             string Novo_NomeSocial = TextBoxNomeSocial.Text;
             if (Novo_Nome.Any(char.IsNumber))
             {
-                label1.Text = "NomeSoci n„o pode conter numeros";
+                label1.Text = "Nome Social n„o pode conter numeros";
                 return false;
             }
             if (Novo_Nome.Any(char.IsPunctuation))
             {
-                label1.Text = "NomeSoci n„o pode conter simbolos";
+                label1.Text = "Nome Social n„o pode conter simbolos";
                 return false;
             }
 
-            //etinia
-            string Nova_Etinia = ComboBoxGenero.Text;
-            if (string.IsNullOrWhiteSpace(Nova_Etinia))
+            //etnia
+            string Nova_Etnia = ComboBoxEtnia.Text;
+            if (string.IsNullOrWhiteSpace(Nova_Etnia))
             {
-                label1.Text = "Selecione sua Etinia";
+                label1.Text = "Selecione sua Etnia";
                 return false;
             }
 
@@ -238,16 +238,6 @@ namespace CadastroClientes
             return true;
         }
 
-
-
-
-
-
-
-
-
-
-
         public bool Buscador() {
             string Novo_Nome = TextBoxNome.Text;
             string Novo_DataDeNascimento = TextBoxData.Text;
@@ -309,7 +299,7 @@ namespace CadastroClientes
                 Endereco = endereco1,
                 Genero = Genero.Masculino,
                 NomeSocial = "gathusco",
-                Etinia = Etinia.Branco,
+                Etnia = Etnia.Branco,
                 Estrangeiro = false,
                 TipoCliente = TipoCliente.PessoaFisica
             }); //posso adiconar um item a lista desse modo.
@@ -324,7 +314,7 @@ namespace CadastroClientes
                 Endereco = endereco2,
                 Genero = Genero.Feminino,
                 NomeSocial = "capivara",
-                Etinia = Etinia.Branco,
+                Etnia = Etnia.Branco,
                 Estrangeiro = false,
                 TipoCliente = TipoCliente.PessoaFisica
             }; //posso adicionar um item a lista desse modo. a diferen√ßa deles √© que o primeiro √© um objeto anonimo e o segundo √© um objeto nomeado.
@@ -340,7 +330,7 @@ namespace CadastroClientes
                 Endereco = endereco3,
                 Genero = Genero.Masculino,
                 NomeSocial = "chorrosco",
-                Etinia = Etinia.Branco,
+                Etnia = Etnia.Branco,
                 Estrangeiro = false,
                 TipoCliente = TipoCliente.PessoaFisica
             };
@@ -404,7 +394,7 @@ namespace CadastroClientes
                     Endereco = endereco_Novo,
                     Genero = (Genero)ComboBoxGenero.SelectedIndex, //È assim que ENUMs funcionam e s„o usados com as Comboboxes
                     NomeSocial = novoClienteDados.NomeSocial,
-                    Etinia = (Etinia)ComboBoxEtinia.SelectedIndex,
+                    Etnia = (Etnia)ComboBoxEtnia.SelectedIndex,
                     Estrangeiro = Novo_Estrangeiro,
                     TipoCliente = tipoClienteSelecionado
                 });

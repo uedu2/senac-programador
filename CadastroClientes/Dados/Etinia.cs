@@ -1,6 +1,6 @@
 ﻿namespace CadastroClientes.Dados
 {
-    public enum Etinia
+    public enum Etnia
     {
         Branco,
         Negro,

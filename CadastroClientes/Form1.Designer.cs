@@ -41,7 +41,7 @@
             TextBoxNome = new TextBox();
             TextBoxData = new MaskedTextBox();
             tableLayoutPanel2 = new TableLayoutPanel();
-            ComboBoxEtinia = new ComboBox();
+            ComboBoxEtnia = new ComboBox();
             TextBoxNomeSocial = new TextBox();
             TextBoxEmail = new TextBox();
             TextBoxTelefone = new MaskedTextBox();
@@ -152,11 +152,11 @@
             LabelEtinia.Anchor = AnchorStyles.None;
             LabelEtinia.AutoSize = true;
             LabelEtinia.Font = new Font("Elephant", 14.25F);
-            LabelEtinia.Location = new Point(75, 442);
+            LabelEtinia.Location = new Point(78, 442);
             LabelEtinia.Name = "LabelEtinia";
-            LabelEtinia.Size = new Size(71, 25);
+            LabelEtinia.Size = new Size(65, 25);
             LabelEtinia.TabIndex = 12;
-            LabelEtinia.Text = "Etinia";
+            LabelEtinia.Text = "Etnia";
             // 
             // LabelEstrangeiro
             // 
@@ -231,7 +231,7 @@
             // 
             tableLayoutPanel2.ColumnCount = 1;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Controls.Add(ComboBoxEtinia, 0, 6);
+            tableLayoutPanel2.Controls.Add(ComboBoxEtnia, 0, 6);
             tableLayoutPanel2.Controls.Add(TextBoxNomeSocial, 0, 5);
             tableLayoutPanel2.Controls.Add(TextBoxEmail, 0, 3);
             tableLayoutPanel2.Controls.Add(TextBoxTelefone, 0, 2);
@@ -251,16 +251,16 @@
             tableLayoutPanel2.Size = new Size(215, 491);
             tableLayoutPanel2.TabIndex = 17;
             // 
-            // ComboBoxEtinia
+            // ComboBoxEtnia
             // 
-            ComboBoxEtinia.Anchor = AnchorStyles.None;
-            ComboBoxEtinia.DropDownStyle = ComboBoxStyle.DropDownList;
-            ComboBoxEtinia.FormattingEnabled = true;
-            ComboBoxEtinia.Items.AddRange(new object[] { "Branco", "Negro", "Pardo", "Asiatico", "Indigena" });
-            ComboBoxEtinia.Location = new Point(47, 444);
-            ComboBoxEtinia.Name = "ComboBoxEtinia";
-            ComboBoxEtinia.Size = new Size(121, 23);
-            ComboBoxEtinia.TabIndex = 8;
+            ComboBoxEtnia.Anchor = AnchorStyles.None;
+            ComboBoxEtnia.DropDownStyle = ComboBoxStyle.DropDownList;
+            ComboBoxEtnia.FormattingEnabled = true;
+            ComboBoxEtnia.Items.AddRange(new object[] { "Branco", "Negro", "Pardo", "Asiatico", "Indigena" });
+            ComboBoxEtnia.Location = new Point(47, 444);
+            ComboBoxEtnia.Name = "ComboBoxEtnia";
+            ComboBoxEtnia.Size = new Size(121, 23);
+            ComboBoxEtnia.TabIndex = 8;
             // 
             // TextBoxNomeSocial
             // 
@@ -644,7 +644,7 @@
         private TextBox TextBoxEmail;
         private MaskedTextBox TextBoxTelefone;
         private ComboBox ComboBoxGenero;
-        private ComboBox ComboBoxEtinia;
+        private ComboBox ComboBoxEtnia;
         private TableLayoutPanel tableLayoutPanel4;
         private TableLayoutPanel tableLayoutPanel3;
         private CheckBox CheckBoxEstrangeiroSim;
