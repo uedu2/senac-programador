@@ -280,9 +280,9 @@ namespace CadastroClientes
             }
             return encontrado;
 
-        }
+        } // metodo para verificar se o cliente j· est· cadastrado
 
-        private int GerarNovoId()
+        private int GerarNovoId() // metodo para gerar um novo ID para o cliente
         {
             return clientes.Max(cliente => cliente.Id) + 1;
         }
@@ -292,8 +292,7 @@ namespace CadastroClientes
 
             InitializeComponent();
 
-            Endereco endereco1 = new Endereco();// { Logradouro = "Rua dos Bobos", Numero = "0", Complemento = 
-                                                // "Casa", Bairro = "Bairro do Limoeiro", Municipio = "Sei l√°", Estado = "Gasoso", Cep = "00000-000" };
+            Endereco endereco1 = new Endereco();
 
             Endereco endereco2 = new Endereco();
 
