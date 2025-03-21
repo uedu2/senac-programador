@@ -1,7 +1,5 @@
 using CadastroClientes.Dados;
 using CadastroClientes.NovosDados;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Runtime.ConstrainedExecution;
 namespace CadastroClientes
 {
     public partial class Form1 : Form
@@ -26,14 +24,14 @@ namespace CadastroClientes
         {
             //nome
             string Novo_Nome = TextBoxNome.Text;
-            if (string.IsNullOrWhiteSpace(Novo_Nome))         
+            if (string.IsNullOrWhiteSpace(Novo_Nome))
             {
-                label1.Text = "NOME não pode ser vazio";
+                label1.Text = "Nome não pode estar vazio";
                 return false;
             }
             if (!Novo_Nome.Contains(" "))
             {
-                label1.Text = "Nome Completo";
+                label1.Text = "Digite o Nome Completo";
                 return false;
             }
             if (Novo_Nome.Any(char.IsNumber))
@@ -51,12 +49,12 @@ namespace CadastroClientes
             string Novo_DataDeNascimento = TextBoxData.Text;
             if (string.IsNullOrWhiteSpace(Novo_DataDeNascimento))
             {
-                label1.Text = "não pode ser vazio";
+                label1.Text = "Data não pode estar vazia";
                 return false;
             }
             if (Novo_DataDeNascimento.Contains(" "))
             {
-                label1.Text = "Data vazia";
+                label1.Text = "Data não pode estar vazia";
                 return false;
             }
             if (Novo_DataDeNascimento.Length < 10)
@@ -86,7 +84,7 @@ namespace CadastroClientes
             string Novo_Telefone = TextBoxTelefone.Text;
             if (string.IsNullOrWhiteSpace(Novo_Telefone))
             {
-                label1.Text = "Telefone não pode ser vazio";
+                label1.Text = "Telefone não pode estar vazio";
                 return false;
             }
             if (Novo_Telefone.Length < 13)
@@ -104,7 +102,7 @@ namespace CadastroClientes
             string Novo_Email = TextBoxEmail.Text;
             if (string.IsNullOrWhiteSpace(Novo_Email))
             {
-                label1.Text = "não pode ser vazio";
+                label1.Text = "Email não pode estar vazio";
                 return false;
             }
             if (!Novo_Email.Contains("@"))
@@ -189,7 +187,7 @@ namespace CadastroClientes
 
             //bairro
             string Novo_Bairro = TextBoxBairro.Text;
-            if (Novo_Bairro.Any(char.IsNumber)) 
+            if (Novo_Bairro.Any(char.IsNumber))
             {
                 label1.Text = "Bairro invalido";
                 return false;
@@ -238,7 +236,8 @@ namespace CadastroClientes
             return true;
         }
 
-        public bool Buscador() {
+        public bool Buscador()
+        {
             string Novo_Nome = TextBoxNome.Text;
             string Novo_DataDeNascimento = TextBoxData.Text;
             string Novo_Telefone = TextBoxTelefone.Text;
@@ -356,7 +355,7 @@ namespace CadastroClientes
 
             int novoId = GerarNovoId();
 
-            if (!Verificador_NovoEndereco()) 
+            if (!Verificador_NovoEndereco())
             {
                 return;
             }
@@ -405,7 +404,7 @@ namespace CadastroClientes
 
             }
 
-           
+
         }
     }
 }
