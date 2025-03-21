@@ -71,8 +71,15 @@ namespace CadastroClientes
                 label1.Text = "Data invalida";
                 return false;
             }
-            
-          
+            int index = 6;
+            string ano = TextBoxData.Text.Substring(index);
+            if (Convert.ToInt32(ano) > 2007 || Convert.ToInt32(ano) < 1900)
+            {
+                label1.Text = "Data invalida";
+                return false;
+            }
+
+
 
 
             //telefone
