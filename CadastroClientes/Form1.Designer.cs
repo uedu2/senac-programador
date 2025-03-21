@@ -70,6 +70,7 @@
             Botao_Cadastrar = new Button();
             tableLayoutPanel6 = new TableLayoutPanel();
             label1 = new Label();
+            dataGridViewClientes = new DataGridView();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
@@ -77,6 +78,7 @@
             tableLayoutPanel8.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
             tableLayoutPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).BeginInit();
             SuspendLayout();
             // 
             // LabelNome
@@ -252,6 +254,7 @@
             // ComboBoxEtinia
             // 
             ComboBoxEtinia.Anchor = AnchorStyles.None;
+            ComboBoxEtinia.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxEtinia.FormattingEnabled = true;
             ComboBoxEtinia.Items.AddRange(new object[] { "Branco", "Negro", "Pardo", "Asiatico", "Indigena" });
             ComboBoxEtinia.Location = new Point(47, 444);
@@ -288,7 +291,7 @@
             // ComboBoxGenero
             // 
             ComboBoxGenero.Anchor = AnchorStyles.None;
-            ComboBoxGenero.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            ComboBoxGenero.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxGenero.FormattingEnabled = true;
             ComboBoxGenero.Items.AddRange(new object[] { "Masculino", "Feminino", "Outro" });
             ComboBoxGenero.Location = new Point(47, 303);
@@ -314,6 +317,7 @@
             // 
             RadioButtonPessoaFisica.Anchor = AnchorStyles.None;
             RadioButtonPessoaFisica.AutoSize = true;
+            RadioButtonPessoaFisica.Checked = true;
             RadioButtonPessoaFisica.Location = new Point(34, 26);
             RadioButtonPessoaFisica.Name = "RadioButtonPessoaFisica";
             RadioButtonPessoaFisica.Size = new Size(38, 19);
@@ -330,7 +334,6 @@
             RadioButtonPessoaJuridica.Name = "RadioButtonPessoaJuridica";
             RadioButtonPessoaJuridica.Size = new Size(35, 19);
             RadioButtonPessoaJuridica.TabIndex = 1;
-            RadioButtonPessoaJuridica.TabStop = true;
             RadioButtonPessoaJuridica.Text = "PJ";
             RadioButtonPessoaJuridica.UseVisualStyleBackColor = true;
             // 
@@ -526,6 +529,7 @@
             // ComboBoxEstado
             // 
             ComboBoxEstado.Anchor = AnchorStyles.None;
+            ComboBoxEstado.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxEstado.FormattingEnabled = true;
             ComboBoxEstado.Items.AddRange(new object[] { "Acre-AC", "Alagoas-AL", "Amapá-AP", "Amazonas-AM", "Bahia-BA", "Ceará-CE", "Espírito Santo-ES", "Goiás-GO", "Maranhão-MA", "Mato Grosso-MT", "Mato Grosso do Sul-MS", "Minas Gerais-MG", "Pará-PA", "Paraíba-PB", "Paraná-PR", "Pernambuco-PE", "Piauí-PI", "Rio de Janeiro-RJ", "Rio Grande do Norte-RN", "Rio Grande do Sul-RS", "Rondônia-RO", "Roraima-RR", "Santa Catarina-SC", "São Paulo-SP", "Sergipe-SE", "Tocantins-TO", "Distrito Federal-DF" });
             ComboBoxEstado.Location = new Point(48, 428);
@@ -568,17 +572,31 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(942, 245);
+            label1.Location = new Point(907, 579);
             label1.Name = "label1";
             label1.Size = new Size(90, 15);
             label1.TabIndex = 25;
             label1.Text = "TUDO CERTO???";
             // 
+            // dataGridViewClientes
+            // 
+            dataGridViewClientes.AllowUserToAddRows = false;
+            dataGridViewClientes.AllowUserToDeleteRows = false;
+            dataGridViewClientes.AllowUserToResizeRows = false;
+            dataGridViewClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewClientes.Location = new Point(907, 18);
+            dataGridViewClientes.MultiSelect = false;
+            dataGridViewClientes.Name = "dataGridViewClientes";
+            dataGridViewClientes.ReadOnly = true;
+            dataGridViewClientes.Size = new Size(507, 539);
+            dataGridViewClientes.TabIndex = 26;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1075, 626);
+            ClientSize = new Size(1426, 626);
+            Controls.Add(dataGridViewClientes);
             Controls.Add(label1);
             Controls.Add(tableLayoutPanel5);
             Controls.Add(tableLayoutPanel3);
@@ -602,6 +620,7 @@
             tableLayoutPanel5.ResumeLayout(false);
             tableLayoutPanel5.PerformLayout();
             tableLayoutPanel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -652,5 +671,6 @@
         private Button Botao_Cadastrar;
         private TableLayoutPanel tableLayoutPanel6;
         private Label label1;
+        private DataGridView dataGridViewClientes;
     }
 }

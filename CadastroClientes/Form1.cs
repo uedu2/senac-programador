@@ -1,12 +1,15 @@
 using CadastroClientes.Dados;
 using CadastroClientes.NovosDados;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Runtime.ConstrainedExecution;
 namespace CadastroClientes
 {
     public partial class Form1 : Form
     {
         List<Cliente> clientes = new List<Cliente>();
-        List<string> generos = new List<string>() {"macaco"};
-        
+
+        private readonly BindingSource BindingSource = [];
+
         public NovoClienteDados Novos_Dados() // metodo para pegar os dados do novo cliente
         {
             return new NovoClienteDados
@@ -61,16 +64,14 @@ namespace CadastroClientes
                 label1.Text = "Data incompleta";
                 return false;
             }
-            if (Novo_DataDeNascimento.Contains("30/02"))
+            DateTime temp;
+
+            if (!DateTime.TryParse(Novo_DataDeNascimento, out temp))
             {
                 label1.Text = "Data invalida";
                 return false;
             }
-            if (Novo_DataDeNascimento.Contains("31/02"))
-            {
-                label1.Text = "Data invalida";
-                return false;
-            }
+            
           
 
 
@@ -122,17 +123,123 @@ namespace CadastroClientes
                 label1.Text = "Selecione um genero!";
                 return false;
             }
+            //nome social
+            string Novo_NomeSocial = TextBoxNomeSocial.Text;
+            if (Novo_Nome.Any(char.IsNumber))
+            {
+                label1.Text = "NomeSoci não pode conter numeros";
+                return false;
+            }
+            if (Novo_Nome.Any(char.IsPunctuation))
+            {
+                label1.Text = "NomeSoci não pode conter simbolos";
+                return false;
+            }
 
             //etinia
-
-            //estrangeiro
-
-            //tipo
+            string Nova_Etinia = ComboBoxGenero.Text;
+            if (string.IsNullOrWhiteSpace(Nova_Etinia))
+            {
+                label1.Text = "Selecione sua Etinia";
+                return false;
+            }
 
 
 
             return true;
         }
+
+
+        public bool Verificador_NovoEndereco() // metodo para verificar se os campos do novo endereco estão preenchidos corretamente
+        {
+
+
+            //logradouro
+            string Novo_Logradouro = TextBoxLogradouro.Text;
+            if (Novo_Logradouro.Any(char.IsNumber))
+            {
+                label1.Text = "Logradouro não pode conter numeros";
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(Novo_Logradouro))
+            {
+                label1.Text = "Logradouro invalido";
+                return false;
+            }
+
+            //numero
+            string Novo_Numero = TextBoxNumero.Text;
+            if (!Novo_Numero.Any(char.IsNumber))
+            {
+                label1.Text = "Numero invalido";
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(Novo_Numero))
+            {
+                label1.Text = "Numero invalido";
+                return false;
+            }
+
+            //bairro
+            string Novo_Bairro = TextBoxBairro.Text;
+            if (Novo_Bairro.Any(char.IsNumber)) 
+            {
+                label1.Text = "Bairro invalido";
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(Novo_Bairro))
+            {
+                label1.Text = "Bairro invalido";
+                return false;
+            }
+
+            //municipio
+            string Novo_Municipio = TextBoxMunicipio.Text;
+            if (Novo_Municipio.Any(char.IsNumber))
+            {
+                label1.Text = "Municipio invalido";
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(Novo_Municipio))
+            {
+                label1.Text = "Municipio invalido";
+                return false;
+            }
+
+            //estado
+            string Novo_Estado = ComboBoxEstado.Text;
+            if (string.IsNullOrWhiteSpace(Novo_Estado))
+            {
+                label1.Text = "Estado invalido";
+                return false;
+            }
+
+            //cep
+            string Novo_Cep = TextBoxCEP.Text;
+            if (!Novo_Cep.Any(char.IsNumber))
+            {
+                label1.Text = "CEP invalido";
+                return false;
+            }
+            if (Novo_Cep.Length < 9)
+            {
+                label1.Text = "CEP invalido";
+                return false;
+            }
+
+
+            return true;
+        }
+
+
+
+
+
+
+
+
+
+
 
         public bool Buscador() {
             string Novo_Nome = TextBoxNome.Text;
@@ -188,7 +295,7 @@ namespace CadastroClientes
 
             clientes.Add(new Cliente()
             {
-                Id = 123,
+                Id = 10,
                 Nome = "Wesley",
                 DataDeNascimento = "12/12/12",
                 Telefone = "40028922",
@@ -203,7 +310,7 @@ namespace CadastroClientes
 
             Cliente Julia = new Cliente()
             {
-                Id = 321,
+                Id = 11,
                 Nome = "Julia",
                 DataDeNascimento = "10/10/10",
                 Telefone = "40028922",
@@ -219,7 +326,7 @@ namespace CadastroClientes
 
             Cliente Daniel = new Cliente()
             {
-                Id = 213,
+                Id = 12,
                 Nome = "Daniel",
                 DataDeNascimento = "11/11/11",
                 Telefone = "40028922",
@@ -232,6 +339,10 @@ namespace CadastroClientes
                 TipoCliente = TipoCliente.PessoaFisica
             };
             clientes.Add(Daniel);
+
+            BindingSource.DataSource = clientes;
+            dataGridViewClientes.DataSource = BindingSource;
+
         }
 
         private void Botao_Cadastrar_Click(object sender, EventArgs e)
@@ -242,11 +353,29 @@ namespace CadastroClientes
             string Novo_Telefone = TextBoxTelefone.Text;
             string Novo_Email = TextBoxEmail.Text;
             string Novo_NomeSocial = TextBoxNomeSocial.Text;
-            string Novo_Genero = ComboBoxGenero.Text;
+            bool Novo_Estrangeiro = CheckBoxEstrangeiroSim.Checked;
+
 
             NovoClienteDados novoClienteDados = Novos_Dados();
-            Endereco endereco4 = new Endereco();
+
             int novoId = GerarNovoId();
+
+            if (!Verificador_NovoEndereco()) 
+            {
+                return;
+            }
+
+            Endereco endereco_Novo = new Endereco()
+            {
+                Logradouro = TextBoxLogradouro.Text,
+                Numero = TextBoxNumero.Text,
+                Complemento = TextBoxComplemento.Text,
+                Bairro = TextBoxBairro.Text,
+                Municipio = TextBoxMunicipio.Text,
+                Estado = ComboBoxEstado.Text,
+                Cep = TextBoxCEP.Text
+
+            };
 
 
             if (!Verificador_NovoCliente())
@@ -256,65 +385,28 @@ namespace CadastroClientes
 
             if (!Buscador())
             {
-                if (Novo_Genero == "Masculino") 
-                {
-                    clientes.Add(new Cliente()
-                    {
-                        Id = novoId,
-                        Nome = novoClienteDados.Nome,
-                        DataDeNascimento = novoClienteDados.DataDeNascimento,
-                        Telefone = novoClienteDados.Telefone,
-                        Email = novoClienteDados.Email,
-                        Endereco = endereco4,
-                        Genero = Genero.Masculino,
-                        NomeSocial = novoClienteDados.NomeSocial,
-                        Etinia = Etinia.Branco,
-                        Estrangeiro = false,
-                        TipoCliente = TipoCliente.PessoaFisica
-                    });
-                    label1.Text = "Cliente cadastrado com sucesso!";
-                    return;
-                }
-                else if (Novo_Genero == "Feminino")
-                {
-                    clientes.Add(new Cliente()
-                    {
-                        Id = novoId,
-                        Nome = novoClienteDados.Nome,
-                        DataDeNascimento = novoClienteDados.DataDeNascimento,
-                        Telefone = novoClienteDados.Telefone,
-                        Email = novoClienteDados.Email,
-                        Endereco = endereco4,
-                        Genero = Genero.Feminino,
-                        NomeSocial = novoClienteDados.NomeSocial,
-                        Etinia = Etinia.Branco,
-                        Estrangeiro = false,
-                        TipoCliente = TipoCliente.PessoaFisica
-                    });
-                    label1.Text = "Cliente cadastrado com sucesso!";
-                    return;
-                }
-                else if (Novo_Genero == "Outro")
-                {
-                    clientes.Add(new Cliente()
-                    {
-                        Id = novoId,
-                        Nome = novoClienteDados.Nome,
-                        DataDeNascimento = novoClienteDados.DataDeNascimento,
-                        Telefone = novoClienteDados.Telefone,
-                        Email = novoClienteDados.Email,
-                        Endereco = endereco4,
-                        Genero = Genero.Outro,
-                        NomeSocial = novoClienteDados.NomeSocial,
-                        Etinia = Etinia.Branco,
-                        Estrangeiro = false,
-                        TipoCliente = TipoCliente.PessoaFisica
-                    });
-                    label1.Text = "Cliente cadastrado com sucesso!";
-                    return;
-                }
+                int tipoClienteIndex = RadioButtonPessoaFisica.Checked ? 0 : 1;
+                TipoCliente tipoClienteSelecionado = (TipoCliente)tipoClienteIndex;
 
-               
+                clientes.Add(new Cliente()
+                {
+                    Id = novoId,
+                    Nome = novoClienteDados.Nome,
+                    DataDeNascimento = novoClienteDados.DataDeNascimento,
+                    Telefone = novoClienteDados.Telefone,
+                    Email = novoClienteDados.Email,
+                    Endereco = endereco_Novo,
+                    Genero = (Genero)ComboBoxGenero.SelectedIndex, //é assim que ENUMs funcionam e são usados com as Comboboxes
+                    NomeSocial = novoClienteDados.NomeSocial,
+                    Etinia = (Etinia)ComboBoxEtinia.SelectedIndex,
+                    Estrangeiro = Novo_Estrangeiro,
+                    TipoCliente = tipoClienteSelecionado
+                });
+                label1.Text = "Cliente cadastrado com sucesso!";
+                BindingSource.ResetBindings(false);
+                return;
+
+
             }
 
            
