@@ -1,0 +1,24 @@
+CREATE TABLE IF NOT EXISTS wesley (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    sobrenome VARCHAR(50) NOT NULL UNIQUE,
+    apelido VARCHAR(50) NOT NULL
+    filme favorito VARCHAR(50) NOT NULL
+);
+
+INSERT INTO wesley VALUES
+('Wesley', 'Silva', 'Wes', 'Os Mosconautas no Mundo da Lua'),
+('Wesley', 'Santos', 'Lele','Ataque dos Tomates Assassinos'),
+('Wesley', 'Oliveira', 'Olly','O Incrível Homem Que Derreteu'),
+('Wesley', 'Carvalho', 'Carva','O Império dos Sonhos' ),
+('Wesley', 'Barbosa', 'Barbs','Troll 2'),
+('Wesley', 'Martins', 'Martz','Zardoz'),
+('Wesley', 'Costa', 'Cos','Planeta dos Vampiros'),
+('Wesley', 'Ferreira', 'Ferre','A Montanha Sagrada'),
+('Wesley', 'Almeida', 'Meida','Pink Flamingos')
+('Wesley', 'Ribeiro', 'Ribs','Rubber: O Pneu Assassino'),
+('Wesley', 'Melo', 'Mel','Ernest Vai à África'),
+('Wesley', 'Araújo', 'Aru','O Homem dos Olhos de Raio-X'),
+('Wesley', 'Gomes', 'Gom','A Incrível Mulher Que Encolheu'),
+('Wesley', 'Pereira', 'Peri','Samurai Cop'),
+('Wesley', 'Rocha', 'Rock','O Ataque das Águias');
