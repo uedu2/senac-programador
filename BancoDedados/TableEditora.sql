@@ -104,4 +104,28 @@ select * from livro, genero, autor, editora where livro.id_genero = genero.id an
 
 
 
+
+SELECT 
+    livro.id,
+    livro.titulo,
+    livro.data_publicacao,
+    livro.numero_paginas,
+    livro.preco,
+    livro.isbn,
+    genero.nome AS genero,
+    editora.nome AS editora,
+    autor.nome AS autor
+FROM
+    livro
+        JOIN
+    genero ON livro.id_genero = genero.id
+        JOIN
+    editora ON livro.id_editora = editora.id
+        JOIN
+    autor ON livro.id_autor = autor.id;
+
+
+
+
+
 drop table livro;
