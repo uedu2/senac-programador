@@ -50,6 +50,18 @@ select * from cliente where nome like "f%";
 select * from cliente where cidade != "São Paulo" and cidade != "Curitiba";
 
 
+
+select count(id) as pedidos from pedido;
+
+select avg(valor) as media from pedido;
+
+SELECT cliente.nome, SUM(valor) as total_gasto
+FROM pedido
+JOIN cliente ON pedido.cliente_id = cliente.id
+GROUP BY cliente_id;
+
+
+
 create table if not exists pedido(
 	 id INT PRIMARY KEY AUTO_INCREMENT,
 	cliente_id int not null,
@@ -136,7 +148,11 @@ FROM
     set saldo = saldo + (0.1 * saldo);
     
     
-    delete from pedido where valor < 500;
+    DELETE FROM pedido 
+WHERE
+    valor < 500;
+    
+    
     
     
 
