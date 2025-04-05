@@ -10,30 +10,29 @@ CREATE TABLE IF NOT EXISTS produto (
         REFERENCES fornecedor (id)
 );
 drop table fornecedor;
-create table if not exists fornecedor(
-	id INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS fornecedor (
+    id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
-    cidade  VARCHAR(100)
+    cidade VARCHAR(100)
 );
 drop table pedido;
 CREATE TABLE IF NOT EXISTS pedido (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    produto_id int NOT NULL,
+    produto_id INT NOT NULL,
     quantidade INT NOT NULL,
-    data_pedido datetime NOT NULL,
+    data_pedido DATETIME NOT NULL,
     cliente_id INT NOT NULL,
     FOREIGN KEY (produto_id)
         REFERENCES produto (id),
-	FOREIGN KEY (cliente_id)
+    FOREIGN KEY (cliente_id)
         REFERENCES cliente (id)
-	
 );
 drop table cliente;
-create table if not exists cliente(
-	id INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS cliente (
+    id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
-    cidade  VARCHAR(100),
-    idade int NOT NULL
+    cidade VARCHAR(100),
+    idade INT NOT NULL
 );
 
 insert into fornecedor (nome, cidade)
@@ -52,7 +51,8 @@ insert into cliente (nome, cidade, idade)
 values ("João Silva", "São Paulo", 35),
 ("Maria Santos", "Belo Horizonte", 28),
 ("Carlos Lima", "rio de janeiro",42),
-("Fernanda Rocha", "rio de janeiro",30);
+("Gerson Luiz", "rio de janeiro",55),
+("Fernanda Rocha", "curitiba",30);
 
 insert into pedido (produto_id, quantidade, data_pedido, cliente_id) values
 (
@@ -129,7 +129,133 @@ SELECT
 FROM produto
 GROUP by categoria;
 
-select count(produto_id), pedido.* from pedido group by cliente_id;
+SELECT 
+    COUNT(pedido.id), cliente.nome
+FROM
+    pedido
+        INNER JOIN
+    cliente ON pedido.cliente_id = cliente.id
+GROUP BY cliente.nome;
 
+SELECT 
+    SUM(produto.estoque), produto.categoria
+FROM
+    produto
+GROUP BY produto.categoria;
+
+SELECT 
+    produto.nome, pedido.quantidade
+FROM
+    pedido
+        INNER JOIN
+    produto ON pedido.produto_id = produto.id
+ORDER BY quantidade DESC;
+
+SELECT 
+    COUNT(cliente.nome) AS quantidade_de_clientes,
+    cliente.cidade
+FROM
+    cliente
+GROUP BY cidade
+ORDER BY COUNT(cliente.nome) DESC;
+
+
+SELECT 
+    produto.nome AS nome_do_produto,
+    fornecedor.nome AS nome_do_fornecedor
+FROM
+    produto
+        INNER JOIN
+    fornecedor ON produto.fornecedor_id = fornecedor.id
+ORDER BY fornecedor.nome ASC;
+
+SELECT 
+    pedido.id AS pedido,
+    pedido.data_pedido,
+    cliente.nome,
+    produto.nome
+FROM
+    pedido
+        INNER JOIN
+    cliente ON pedido.cliente_id = cliente.id
+        INNER JOIN
+    produto ON pedido.produto_id = produto.id
+ORDER BY data_pedido ASC;
+
+SELECT 
+    pedido.id AS pedido,
+    pedido.data_pedido,
+    cliente.nome,
+    produto.nome,
+    fornecedor.nome
+FROM
+    pedido
+        INNER JOIN
+    cliente ON pedido.cliente_id = cliente.id
+        INNER JOIN
+    produto ON pedido.produto_id = produto.id
+        INNER JOIN
+    fornecedor ON produto.fornecedor_id = fornecedor.id;
+
+SELECT 
+    cliente.nome, SUM(pedido.quantidade)
+FROM
+    pedido
+        INNER JOIN
+    cliente ON pedido.cliente_id = cliente.id
+GROUP BY cliente.id;
+
+
+
+SELECT 
+    *
+FROM
+    produto
+WHERE
+    preco > (SELECT 
+            AVG(produto.preco)
+        FROM
+            produto
+        WHERE
+            produto.categoria = 'eletrônicos')
+        AND produto.categoria = 'eletrônicos'
+        OR preco > (SELECT 
+            AVG(produto.preco)
+        FROM
+            produto
+        WHERE
+            produto.categoria = 'móveis')
+        AND produto.categoria = 'móveis';
+
+UPDATE produto 
+SET 
+    preco = preco + (0.1 * preco)
+WHERE
+    produto.categoria = 'Eletrônico';
+
+DELETE FROM pedido 
+WHERE
+    cliente_id = (SELECT 
+        *
+    FROM
+        cliente
+    
+    WHERE
+        cliente.cidade = 'curitiba');
+
+insert into cliente (nome, cidade, idade) values("Ricardo Lopes","Porto Alegre", 38);
+
+insert into pedido (produto_id, quantidade, data_pedido, cliente_id) values (2,2,"2024-03-25",1);
+
+SELECT 
+    cliente.nome
+FROM
+    pedido
+        INNER JOIN
+    cliente ON pedido.cliente_id = cliente.id
+        INNER JOIN
+    produto ON pedido.produto_id = produto.id
+WHERE
+    produto.categoria = 'móveis';
 
 
