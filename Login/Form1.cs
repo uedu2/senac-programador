@@ -1,12 +1,12 @@
+using MySql.Data.MySqlClient;
+
 namespace Login
 {
     public partial class Form1 : Form
     {
-       
-        List<string> chara = new List<string>() { "@","!","#","$","%","&","*","(",")","_","-","=","+","?" };
-        List<string> numb = new List<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",};
-        List<string> letra = new List<string>() { "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f","g","h","j","k","l","ç","z","x","c","v","b","n","m" };
-        List<string> LETRA = new List<string>() { "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "Ç", "Z", "X", "C", "V", "B", "N", "M" };
+
+        private static readonly string ConnectionString = "datasource=localhost;username=root;password=;database=senac;";
+        private readonly MySqlConnection Connection = new MySqlConnection(ConnectionString);
 
 
         List<Usuario> usuarios = new List<Usuario>();
@@ -14,229 +14,200 @@ namespace Login
         public Form1()
         {
             InitializeComponent();
-            usuarios.Add(new Usuario() { Email = "jessica@email.com", Senha = "Lucas23!" });
-            usuarios.Add(new Usuario() { Email = "wesley@email.com", Senha = "Biw@w2000" }y);
-            usuarios.Add(new Usuario() { Email = "lucas@email.com", Senha = "42Vida!!" });
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string usuariobuscado = textBoxUsuario.Text;
-            string senha = Boxsenha.Text;
+            // Busca o usuário e senha digitados
+            string usuarioBuscado = textBoxUsuario.Text;
+            string senha = textBoxSenha.Text;
 
-            if (string.IsNullOrWhiteSpace(usuariobuscado) && string.IsNullOrWhiteSpace(senha))
+            // Verifica se o usuário foi digitado
+            if (string.IsNullOrWhiteSpace(usuarioBuscado))
             {
-                labelUsuario.Text = "Nome e Senha são obrigatórios!";
-                labelUsuario.ForeColor = Color.Red;
+                // Exibe mensagem de erro
+                labelResultado.Text = "Usuario eh obrigatorio!!!";
+                // Muda a cor da mensagem para vermelho
+                labelResultado.ForeColor = Color.Red;
+                // Encerra a execução do método
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(usuariobuscado))
-            {
-                labelUsuario.Text = "Nome é obrigatório!";
-                labelUsuario.ForeColor = Color.Red;
-                return;
-            }
-
+            // Verifica se a senha foi digitada
             if (string.IsNullOrWhiteSpace(senha))
             {
-                labelUsuario.Text = "Senha é obrigatório!";
-                labelUsuario.ForeColor = Color.Red;
+                // Exibe mensagem de erro
+                labelResultado.Text = "Senha eh obrigatoria!!!";
+                // Muda a cor da mensagem para vermelho
+                labelResultado.ForeColor = Color.Red;
+                // Encerra a execução do método
                 return;
             }
 
-            bool autentificado = false;
+            // Verifica se o usuário e senha estão corretos
+            // Inicializa a variável autenticado como false
+            bool autenticado = false;
 
-            int posicaousuarioencontrado = -1;
-
-            for (int i = 0; i < usuarios.Count; i++)
+            try
             {
-                if (usuarios[i].Email == usuariobuscado && usuarios[i].Senha == senha)
-                {
-                    autentificado = true;
-                }
+                Connection.Open();
+
+                string query = $"SELECT senha FROM usuario WHERE email = '{usuarioBuscado}';";
+
+                MySqlCommand mySqlCommand = new MySqlCommand(query, Connection);
+                MySqlDataReader reader = mySqlCommand.ExecuteReader();
+
+                autenticado = reader.Read() && reader.GetString(0) == senha;
+            }
+            catch
+            {
+                MessageBox.Show("Erro de banco de dados");
+            }
+            finally
+            {
+                Connection.Close();
             }
 
-
-            if (posicaousuarioencontrado != -1 && senha == listsenha[posicaousuarioencontrado])
+            // Verifica se o usuário e senha não foram encontrados
+            if (!autenticado)
             {
-                labelUsuario.Text = "Autentificado com sucesso!";
-                labelUsuario.ForeColor = Color.Blue;
-            }
-            else
-            {
-                labelUsuario.Text = "Senha ou nome incorretos!";
-                labelUsuario.ForeColor = Color.Red;
-            }
-            
-
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxUsuario_TextChanged(object sender, EventArgs e)
-        {
-            //lembrar de fazer os bagulhos!!!
-            var l = textBoxUsuario.Text;
-
-            if (l == " ")
-            {
-                textBoxUsuario.Text = "";
+                // Exibe mensagem de erro
+                labelResultado.Text = "Usuario ou Senha incorretos...";
+                // Muda a cor da mensagem para vermelho
+                labelResultado.ForeColor = Color.Red;
+                // Encerra a execução do método
                 return;
             }
 
-            /*if (textBoxUsuario.Text.Contains(" "))
-             {
-                textBoxUsuario.Text = "";
-                 return;
-             }*/
+            // Se o usuário e senha foram encontrados, exibe mensagem de sucesso
+            labelResultado.Text = "Autenticado com sucesso!";
+            // Muda a cor da mensagem para verde
+            labelResultado.ForeColor = Color.Green;
 
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
+            // Limpa os campos de texto
+            textBoxUsuario.Clear();
+            textBoxSenha.Clear();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            // Busca o novo usuário e senha digitados
+            string novoUsuario = textBoxNovoUsuario.Text;
+            string novaSenha = textBoxNovaSenha.Text;
 
-            string novo_usuario = novonome.Text, nova_senha = novasenha.Text;
-            bool usuario_encontrado = false, characterue = false, numbtrue = false, letratrue = false, LETRAtrue = false;
 
-            //continue;
-            if (nova_senha.Length < 8)
+            // Verifica se o novo usuário foi digitado
+            if (string.IsNullOrWhiteSpace(novoUsuario))
             {
-                aut.Text = "no minimo 8 caracteres";
-                return;
-
-            }
-            if (nova_senha.Contains (" "))
-            {
-                aut.Text = "não pode conter espaços!";
+                labelResultado.Text = "Usuario eh obrigatorio!!!";
                 return;
             }
 
-           
-
-            string encharar = novasenha.Text;
-
-            for (int i = 0; i < chara.Count; i++)//
+            // Verifica se a nova senha foi digitada
+            if (string.IsNullOrWhiteSpace(novaSenha))
             {
-                if (encharar.Contains(chara[i]))
-                {
-                    characterue = true;
-                }
-            }
-            
-            if (!characterue) 
-            {
-                aut.Text = "não tem o character"; 
-                return ;
-            }
-
-
-            for (int i = 0; i < numb.Count; i++)//
-            {
-                if (encharar.Contains(numb[i]))
-                {
-                    numbtrue = true;
-                }
-            }
-            
-            if (!numbtrue)
-            {
-                aut.Text = "não tem o numeros";
+                labelResultado.Text = "Senha eh obrigatoria!!!";
                 return;
             }
 
-
-            for (int i = 0; i < letra.Count; i++)//
+            // Verifica se a senha tem pelo menos 8 caracteres
+            if (novaSenha.Length < 8)
             {
-                if (encharar.Contains(letra[i]))
-                {
-                    letratrue = true;
-                }
-            }
-            
-            if (!letratrue)
-            {
-                aut.Text = "não tem letras min";
+                labelResultado.Text = "A senha deve ter pelo menos 8 caracteres";
                 return;
             }
 
-
-            for (int i = 0; i < LETRA.Count; i++)//
+            // Verifica se a senha tem pelo menos uma letra maiúscula
+            if (!novaSenha.Any(char.IsUpper))
             {
-                if (encharar.Contains(LETRA[i]))
-                {
-                    LETRAtrue = true;
-                }
-            }
-            
-            if (!LETRAtrue)
-            {
-                aut.Text = "não letras mai";
-                return ;
+                labelResultado.Text = "A senha deve ter pelo menos uma letra maiuscula";
+                return;
             }
 
-
-
-            for (int i = 0; i < listadeusuarios.Count; i++)
+            // Verifica se a senha tem pelo menos uma letra minúscula
+            if (!novaSenha.Any(char.IsLower))
             {
-                if (novo_usuario == listadeusuarios[i])
-                {
-                    usuario_encontrado = true;
-                }
+                labelResultado.Text = "A senha deve ter pelo menos uma letra minuscula";
+                return;
             }
-            if (usuario_encontrado == false)
-            {
-                listadeusuarios.Add(novo_usuario);
-                listsenha.Add(nova_senha);
 
+            // Verifica se a senha tem pelo menos um número
+            if (!novaSenha.Any(char.IsNumber))
+            {
+                labelResultado.Text = "A senha deve ter pelo menos um numero";
+                return;
             }
-            else
-            {
 
+            // Verifica se a senha tem pelo menos um caracter especial
+            if (!novaSenha.Any(char.IsPunctuation) && !novaSenha.Any(char.IsSymbol) && !novaSenha.Contains('@'))
+            {
+                labelResultado.Text = "A senha deve ter pelo menos um caracter especial";
+                return;
+            }
+
+            // Verifica se a senha tem espaços em branco
+            if (novaSenha.Any(char.IsWhiteSpace))
+            {
+                labelResultado.Text = "A senha nao deve ter espacos em branco";
+                return;
+            }
+
+            // Verifica se o novo usuário já está cadastrado
+            bool encontrado = false;
+
+            try
+            {
+                Connection.Open();
+
+                string query = $"SELECT email FROM usuario WHERE email = '{novoUsuario}';";
+
+                MySqlCommand mySqlCommand = new MySqlCommand(query, Connection);
+                MySqlDataReader reader = mySqlCommand.ExecuteReader();
+
+                encontrado = reader.Read();
+            }
+            catch
+            {
+                MessageBox.Show("Erro de banco de dados");
+            }
+            finally
+            {
+                Connection.Close();
+            }
+
+            // Se o usuário já estiver cadastrado, exibe mensagem de erro
+            if (encontrado)
+            {
+                labelResultado.Text = "Já existe um usuário cadastrado";
+                return;
+            }
+
+            // Adiciona o novo usuário na lista
+            try
+            {
+                Connection.Open();
+
+                string query = $"INSERT INTO usuario (email, senha) VALUES ('{novoUsuario}', '{novaSenha}');";
+
+                MySqlCommand mySqlCommand = new MySqlCommand(query, Connection);
+                mySqlCommand.ExecuteNonQuery();
+
+                labelResultado.Text = "Usuário cadastrado com sucesso!";
+                textBoxNovoUsuario.Clear();
+                textBoxNovaSenha.Clear();
+            }
+            catch
+            {
+                MessageBox.Show("Erro de banco de dados");
+            }
+            finally
+            {
+                Connection.Close();
             }
         }
 
-        private void Boxsenha_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void novasenha_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }

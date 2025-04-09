@@ -33,18 +33,18 @@
             label1 = new Label();
             label2 = new Label();
             textBoxUsuario = new TextBox();
-            Boxsenha = new TextBox();
+            textBoxSenha = new TextBox();
             pictureBox1 = new PictureBox();
             labelUsuario = new Label();
-            novonome = new TextBox();
-            novasenha = new TextBox();
+            textBoxNovoUsuario = new TextBox();
+            textBoxNovaSenha = new TextBox();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
             button2 = new Button();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
-            aut = new Label();
+            labelResultado = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -68,7 +68,6 @@
             label1.Size = new Size(40, 15);
             label1.TabIndex = 1;
             label1.Text = "Nome";
-            label1.Click += label1_Click;
             // 
             // label2
             // 
@@ -85,15 +84,13 @@
             textBoxUsuario.Name = "textBoxUsuario";
             textBoxUsuario.Size = new Size(100, 23);
             textBoxUsuario.TabIndex = 3;
-            textBoxUsuario.TextChanged += textBoxUsuario_TextChanged;
             // 
-            // Boxsenha
+            // textBoxSenha
             // 
-            Boxsenha.Location = new Point(353, 283);
-            Boxsenha.Name = "Boxsenha";
-            Boxsenha.Size = new Size(100, 23);
-            Boxsenha.TabIndex = 4;
-            Boxsenha.TextChanged += Boxsenha_TextChanged;
+            textBoxSenha.Location = new Point(353, 283);
+            textBoxSenha.Name = "textBoxSenha";
+            textBoxSenha.Size = new Size(100, 23);
+            textBoxSenha.TabIndex = 4;
             // 
             // pictureBox1
             // 
@@ -105,7 +102,6 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
             // 
             // labelUsuario
             // 
@@ -115,21 +111,19 @@
             labelUsuario.Size = new Size(0, 15);
             labelUsuario.TabIndex = 6;
             // 
-            // novonome
+            // textBoxNovoUsuario
             // 
-            novonome.Location = new Point(900, 139);
-            novonome.Name = "novonome";
-            novonome.Size = new Size(198, 23);
-            novonome.TabIndex = 7;
-            novonome.TextChanged += textBox1_TextChanged;
+            textBoxNovoUsuario.Location = new Point(900, 139);
+            textBoxNovoUsuario.Name = "textBoxNovoUsuario";
+            textBoxNovoUsuario.Size = new Size(198, 23);
+            textBoxNovoUsuario.TabIndex = 7;
             // 
-            // novasenha
+            // textBoxNovaSenha
             // 
-            novasenha.Location = new Point(900, 180);
-            novasenha.Name = "novasenha";
-            novasenha.Size = new Size(198, 23);
-            novasenha.TabIndex = 8;
-            novasenha.TextChanged += novasenha_TextChanged;
+            textBoxNovaSenha.Location = new Point(900, 180);
+            textBoxNovaSenha.Name = "textBoxNovaSenha";
+            textBoxNovaSenha.Size = new Size(198, 23);
+            textBoxNovaSenha.TabIndex = 8;
             // 
             // label3
             // 
@@ -190,15 +184,14 @@
             pictureBox3.TabIndex = 14;
             pictureBox3.TabStop = false;
             // 
-            // aut
+            // labelResultado
             // 
-            aut.AutoSize = true;
-            aut.Location = new Point(951, 343);
-            aut.Name = "aut";
-            aut.Size = new Size(38, 15);
-            aut.TabIndex = 15;
-            aut.Text = "label6";
-            aut.Click += label6_Click;
+            labelResultado.AutoSize = true;
+            labelResultado.Location = new Point(951, 343);
+            labelResultado.Name = "labelResultado";
+            labelResultado.Size = new Size(38, 15);
+            labelResultado.TabIndex = 15;
+            labelResultado.Text = "label6";
             // 
             // Form1
             // 
@@ -206,16 +199,16 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(128, 255, 128);
             ClientSize = new Size(1384, 450);
-            Controls.Add(aut);
+            Controls.Add(labelResultado);
             Controls.Add(pictureBox3);
             Controls.Add(button2);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(novasenha);
-            Controls.Add(novonome);
+            Controls.Add(textBoxNovaSenha);
+            Controls.Add(textBoxNovoUsuario);
             Controls.Add(labelUsuario);
-            Controls.Add(Boxsenha);
+            Controls.Add(textBoxSenha);
             Controls.Add(textBoxUsuario);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -238,17 +231,17 @@
         private Label label1;
         private Label label2;
         private TextBox textBoxUsuario;
-        private TextBox Boxsenha;
+        private TextBox textBoxSenha;
         private PictureBox pictureBox1;
         private Label labelUsuario;
-        private TextBox novonome;
-        private TextBox novasenha;
+        private TextBox textBoxNovoUsuario;
+        private TextBox textBoxNovaSenha;
         private Label label3;
         private Label label4;
         private Label label5;
         private Button button2;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
-        private Label aut;
+        private Label labelResultado;
     }
 }
