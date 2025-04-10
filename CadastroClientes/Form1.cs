@@ -1,12 +1,18 @@
-using CadastroClientes.Dados;
 using CadastroClientes.NovosDados;
+using CadastroClientes.Dominio;
 namespace CadastroClientes
 {
     public partial class Form1 : Form
     {
         List<Cliente> clientes = new List<Cliente>();
 
+        private readonly List<Cliente> Clientes = [];
         private readonly BindingSource BindingSource = [];
+
+        public FormListaClientes()
+        {
+            InitializeComponent();
+        }
 
         public NovoClienteDados Novos_Dados() // metodo para pegar os dados do novo cliente
         {

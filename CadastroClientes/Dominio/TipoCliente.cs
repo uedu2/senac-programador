@@ -1,4 +1,4 @@
-﻿namespace CadastroClientes.Dados
+﻿namespace CadastroClientes.Dominio
 {
     public enum TipoCliente
     {

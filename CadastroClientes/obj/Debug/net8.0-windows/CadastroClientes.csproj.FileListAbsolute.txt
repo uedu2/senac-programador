@@ -32,3 +32,4 @@ B:\Estudos\SENAC\Senac\senac-programador\CadastroClientes\obj\Debug\net8.0-windo
 B:\Estudos\SENAC\Senac\senac-programador\CadastroClientes\obj\Debug\net8.0-windows\CadastroClientes.pdb
 B:\Estudos\SENAC\Senac\senac-programador\CadastroClientes\obj\Debug\net8.0-windows\CadastroClientes.genruntimeconfig.cache
 B:\Estudos\SENAC\Senac\senac-programador\CadastroClientes\obj\Debug\net8.0-windows\ref\CadastroClientes.dll
+C:\Users\eduardo.glira\programador\senac-programador\CadastroClientes\obj\Debug\net8.0-windows\CadastroClientes.Properties.Resources.resources

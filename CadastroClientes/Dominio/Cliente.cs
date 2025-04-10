@@ -1,6 +1,4 @@
-﻿using CadastroClientes.Dados;
-
-namespace CadastroClientes
+﻿namespace CadastroClientes.Dominio
 {
     public class Cliente
     {
@@ -9,13 +7,13 @@ namespace CadastroClientes
         public string DataDeNascimento { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
-       public Endereco Endereco { get; set; }
-       public Genero Genero { get; set; }
+        public Endereco Endereco { get; set; }
+        public Genero Genero { get; set; }
         public string NomeSocial { get; set; }
-       public Etnia Etnia { get; set; }
+        public Etnia Etnia { get; set; }
         public bool Estrangeiro { get; set; }
-       public TipoCliente TipoCliente { get; set; }
-       
+        public TipoCliente TipoCliente { get; set; }
+
     }
 
 }
