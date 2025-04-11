@@ -574,9 +574,8 @@
             label1.AutoSize = true;
             label1.Location = new Point(907, 579);
             label1.Name = "label1";
-            label1.Size = new Size(90, 15);
+            label1.Size = new Size(0, 15);
             label1.TabIndex = 25;
-            label1.Text = "TUDO CERTO???";
             // 
             // dataGridViewClientes
             // 
@@ -607,6 +606,7 @@
             Controls.Add(tableLayoutPanel6);
             Name = "Form1";
             Text = "cadastro";
+            Load += Form1_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
