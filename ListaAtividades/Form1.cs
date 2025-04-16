@@ -1,15 +1,27 @@
+using ListaAtividades.Dominio;
+
 namespace ListaAtividades
 {
-    public partial class Form1 : Form
+    public partial class Lista_De_Atividades : Form
     {
-        public Form1()
+        public Lista_De_Atividades()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Lista_De_Atividades_Load(object sender, EventArgs e)
         {
+            Atividade atividade = new ();
 
+            var atividadesEmAndamento = atividade.BuscarAtividadeEmAndamento();
+            if (atividadesEmAndamento.Id > 0) 
+            {
+                textBoxAtividadeEmAndamento.Text = $"{atividadesEmAndamento.Id}-{atividadesEmAndamento.Titulo}";
+            } 
+            
+            
+            var atividadesAtividadePendentes = atividade.ListarAtividadesPendentes();
+            dataGridViewAtividades.DataSource = atividadesEmAndamento;
         }
     }
 }

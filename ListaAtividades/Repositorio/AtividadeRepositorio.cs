@@ -48,7 +48,7 @@ namespace ListaAtividades.Repositorio
             {
                 con.Open();
 
-                string query = $"select * from atividade where situacao = {Situacao.Realizando};";
+                string query = $"select * from atividade where situacao = {(int)Situacao.Realizando};";
                 using (var cmd = new MySqlCommand(query, con)) 
                 {
                     using (var reader = cmd.ExecuteReader()) 
@@ -78,7 +78,7 @@ namespace ListaAtividades.Repositorio
             using (var con = DataBase.GetConnection()) 
             { 
                 con.Open();
-                string query = $"select * from atividade where situacao = {Situacao.Pendente};";
+                string query = $"select * from atividade where situacao = {(int)Situacao.Pendente};";
 
                 using (var cmd = new MySqlCommand(query, con)) 
                 {
