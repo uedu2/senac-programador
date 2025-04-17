@@ -11,7 +11,7 @@ namespace ListaAtividades.Dominio
     {
         public int Id { get; set; }
         public string Titulo { get; set; }
-        public Situacao Situacao { get; set; } // 0 - Em Andamento, 1 - Concluida
+        public Situacao Situacao { get; set; }
         private readonly AtividadeRepositorio repositorio = new();
         public bool Criar() 
         {
@@ -39,7 +39,7 @@ namespace ListaAtividades.Dominio
             Atividade atividadeEmAndamento = BuscarAtividadeEmAndamento();
             Situacao novaSituacao = BuscarProximaSituacao();
 
-            if (atividadeEmAndamento.Id > 0 && atividadeEmAndamento.Situacao == novaSituacao)
+            if (atividadeEmAndamento.Id > 0 && atividadeEmAndamento.Situacao == BuscarProximaSituacao())
             {
                 return false;
             }
@@ -49,15 +49,15 @@ namespace ListaAtividades.Dominio
         }
         public Atividade BuscarAtividadeEmAndamento()
         {
-            return new Atividade();
+            return repositorio.BuscarAtividadeEmAndamento();
         }
         public List<Atividade> ListarAtividadesPendentes()
         {
             return repositorio.ListarAtividadesPendentes();
         }
         private bool ValidarTitulo() 
-        { 
-            return string.IsNullOrWhiteSpace(Titulo);
+        {
+            return !string.IsNullOrWhiteSpace(Titulo);
         }
         private bool ValidarId()
         {

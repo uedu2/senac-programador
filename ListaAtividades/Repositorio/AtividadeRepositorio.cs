@@ -18,7 +18,7 @@ namespace ListaAtividades.Repositorio
             {
                 con.Open();
 
-                string query = "insert into atividade (titulo) values (@titulo);";
+                string query = $"insert into atividade (titulo) values (@titulo);";
                 using (var cmd = new MySqlCommand(query, con)) 
                 {
                     cmd.Parameters.AddWithValue("@titulo", titulo);
@@ -32,7 +32,7 @@ namespace ListaAtividades.Repositorio
             using (var con = DataBase.GetConnection())
             {
                 con.Open();
-                string query = "update atividade set situacao = @situacao where id = @id;";
+                string query = $"update atividade set situacao = @situacao where id = @id;";
                 using (var cmd = new MySqlCommand(query, con))
                 {
                     cmd.Parameters.AddWithValue("@situacao", NovaSituacao);

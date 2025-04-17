@@ -12,3 +12,5 @@ update atividade set situacao = @situacao where id = @id;
 select * from atividade where situacao = 1;
 
 select * from atividade where situacao = 0;
+
+select * from atividade;

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ListaAtividades.Dominio
+namespace ListaAtividades.Repositorio
 {
     internal enum Situacao
     {

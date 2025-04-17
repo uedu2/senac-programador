@@ -33,3 +33,4 @@ C:\Users\eduardo.glira\programador\senac-programador\ListaAtividades\obj\Debug\n
 C:\Users\eduardo.glira\programador\senac-programador\ListaAtividades\obj\Debug\net8.0-windows\ListaAtividades.genruntimeconfig.cache
 C:\Users\eduardo.glira\programador\senac-programador\ListaAtividades\obj\Debug\net8.0-windows\ref\ListaAtividades.dll
 C:\Users\eduardo.glira\programador\senac-programador\ListaAtividades\obj\Debug\net8.0-windows\ListaAtividades.Lista_De_Atividades.resources
+C:\Users\eduardo.glira\programador\senac-programador\ListaAtividades\obj\Debug\net8.0-windows\ListaAtividades.Criar_Atividade.resources
