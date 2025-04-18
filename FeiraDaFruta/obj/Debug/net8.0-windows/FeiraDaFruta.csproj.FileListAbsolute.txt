@@ -33,3 +33,4 @@ C:\Users\eduardo.glira\programador\senac-programador\FeiraDaFruta\obj\Debug\net8
 C:\Users\eduardo.glira\programador\senac-programador\FeiraDaFruta\obj\Debug\net8.0-windows\FeiraDaFruta.pdb
 C:\Users\eduardo.glira\programador\senac-programador\FeiraDaFruta\obj\Debug\net8.0-windows\FeiraDaFruta.genruntimeconfig.cache
 C:\Users\eduardo.glira\programador\senac-programador\FeiraDaFruta\obj\Debug\net8.0-windows\ref\FeiraDaFruta.dll
+C:\Users\eduardo.glira\programador\senac-programador\FeiraDaFruta\obj\Debug\net8.0-windows\FeiraDaFruta.CompraEVenda.resources

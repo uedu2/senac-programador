@@ -20,10 +20,5 @@ namespace FeiraDaFruta.Dominio
             repositorio.CompraProdutos(Quantidade, Id_produto, Dataestoque);
             return true;
         }
-        public bool VendaProdutos() 
-        {
-            repositorio.VendaProdutos(Quantidade, Id_produto, Dataestoque);
-            return true;
-        }
     }
 }

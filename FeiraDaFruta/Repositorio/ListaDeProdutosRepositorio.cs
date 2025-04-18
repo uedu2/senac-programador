@@ -81,7 +81,7 @@ namespace FeiraDaFruta.Repositorio
                                 {
                                     Id = reader.GetInt32("id"),
                                     Nome = reader.GetString("nome"),
-                                    Dataproduto = reader.GetDateTime("data")
+                                    Dataproduto = reader.GetDateTime("dataproduto")
                                 });
                             }
 

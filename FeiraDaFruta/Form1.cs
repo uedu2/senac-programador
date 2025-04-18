@@ -34,9 +34,6 @@ namespace FeiraDaFruta
             }
 
             var linhaSelecionada = dataGridViewFrutas.SelectedRows[0];
-
-
-
         }
 
         private void Feira_Da_Fruta_Load(object sender, EventArgs e)
@@ -44,6 +41,7 @@ namespace FeiraDaFruta
             labelErro.Text = string.Empty;
             Produto produto = new Produto();
             var listaprodutos = produto.ListarProdutos();
+            dataGridViewFrutas.DataSource = listaprodutos;
 
         }
     }

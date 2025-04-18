@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FeiraDaFruta")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c9583b47bef852b47267a58d114d906af9f9c0a4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d6482ab881f3943eecbee474a63b871acabdfea")]
 [assembly: System.Reflection.AssemblyProductAttribute("FeiraDaFruta")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FeiraDaFruta")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
