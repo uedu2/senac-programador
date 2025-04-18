@@ -9,20 +9,20 @@ namespace FeiraDaFruta.Dominio
 {
     internal class Estoque
     {
-        public int id { get; set; }
-        public int quantidade { get; set; }
-        public int id_produto { get; set; }
-        public DateTime dataestoque { get; set; }
+        public int Id { get; set; }
+        public int Quantidade { get; set; }
+        public int Id_produto { get; set; }
+        public DateTime Dataestoque { get; set; }
         private readonly ListaDeProdutosRepositorio repositorio = new ListaDeProdutosRepositorio();
 
         public bool CompraProdutos()
         {
-            repositorio.CompraProdutos(quantidade,id_produto,dataestoque);
+            repositorio.CompraProdutos(Quantidade, Id_produto, Dataestoque);
             return true;
         }
         public bool VendaProdutos() 
         {
-            repositorio.VendaProdutos(quantidade, id_produto, dataestoque);
+            repositorio.VendaProdutos(Quantidade, Id_produto, Dataestoque);
             return true;
         }
     }

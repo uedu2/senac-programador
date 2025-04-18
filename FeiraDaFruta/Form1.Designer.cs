@@ -28,27 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            dataGridViewFrutas = new DataGridView();
             textBoxCriar = new TextBox();
             buttonAdicionar = new Button();
             buttonRemover = new Button();
             buttonCompraVendas = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            labelErro = new Label();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewFrutas).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridViewFrutas
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AllowUserToResizeColumns = false;
-            dataGridView1.AllowUserToResizeRows = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 36);
-            dataGridView1.MultiSelect = false;
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.Size = new Size(240, 402);
-            dataGridView1.TabIndex = 0;
+            dataGridViewFrutas.AllowUserToAddRows = false;
+            dataGridViewFrutas.AllowUserToDeleteRows = false;
+            dataGridViewFrutas.AllowUserToResizeColumns = false;
+            dataGridViewFrutas.AllowUserToResizeRows = false;
+            dataGridViewFrutas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewFrutas.Location = new Point(12, 36);
+            dataGridViewFrutas.MultiSelect = false;
+            dataGridViewFrutas.Name = "dataGridViewFrutas";
+            dataGridViewFrutas.ReadOnly = true;
+            dataGridViewFrutas.Size = new Size(240, 387);
+            dataGridViewFrutas.TabIndex = 0;
             // 
             // textBoxCriar
             // 
@@ -86,30 +87,41 @@
             buttonCompraVendas.Text = "Compra e Vendas";
             buttonCompraVendas.UseVisualStyleBackColor = true;
             // 
+            // labelErro
+            // 
+            labelErro.AutoSize = true;
+            labelErro.Location = new Point(12, 426);
+            labelErro.Name = "labelErro";
+            labelErro.Size = new Size(38, 15);
+            labelErro.TabIndex = 5;
+            labelErro.Text = "label1";
+            // 
             // Feira_Da_Fruta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(591, 450);
+            Controls.Add(labelErro);
             Controls.Add(buttonCompraVendas);
             Controls.Add(buttonRemover);
             Controls.Add(buttonAdicionar);
             Controls.Add(textBoxCriar);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridViewFrutas);
             Name = "Feira_Da_Fruta";
             Text = "Feira da Fruta";
             Load += Feira_Da_Fruta_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewFrutas).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewFrutas;
         private TextBox textBoxCriar;
         private Button buttonAdicionar;
         private Button buttonRemover;
         private Button buttonCompraVendas;
+        private Label labelErro;
     }
 }

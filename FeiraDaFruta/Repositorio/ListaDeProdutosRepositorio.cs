@@ -1,4 +1,5 @@
 ﻿using FeiraDaFruta.Banco_de_Dados;
+using FeiraDaFruta.Dominio;
 using MySql.Data.MySqlClient;
 
 
@@ -41,22 +42,6 @@ namespace FeiraDaFruta.Repositorio
         
         }
 
-        public void VendaProdutos(int quantidade, int id_produto, DateTime data_estoque) 
-        {
-            using (var con = DataBase.GetConnection())
-            {
-                con.Open();
-                string query = "insert into estoque (quantidade, id_produto, dataestoque) values (@quantidade,@id_produto,@data_estoque);";
-                using (var cmd = new MySqlCommand(query, con)) 
-                {
-                    cmd.Parameters.AddWithValue("@quantidade", quantidade);
-                    cmd.Parameters.AddWithValue("@id_produto", id_produto);
-                    cmd.Parameters.AddWithValue("@dataestoque",data_estoque);
-                }
-            }
-               
-        }
-
         public void CompraProdutos(int quantidade, int id_produto, DateTime dataestoque)
         {
             using (var con = DataBase.GetConnection())
@@ -75,7 +60,41 @@ namespace FeiraDaFruta.Repositorio
                 }
             }
         }
-
        
+
+            public List<Produto> ListarProdutos()
+            {
+                List<Produto> produtos = [];
+                using (var conn = DataBase.GetConnection())
+                {
+                    conn.Open();
+
+                    string query = $"SELECT * FROM produto; ";
+
+                    using (var cmd = new MySqlCommand(query, conn))
+                    {
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                produtos.Add(new Produto()
+                                {
+                                    Id = reader.GetInt32("id"),
+                                    Nome = reader.GetString("nome"),
+                                    Dataproduto = reader.GetDateTime("data")
+                                });
+                            }
+
+                        }
+                    }
+                }
+
+                return produtos;
+            }
+
+
+
+        
+
     }
 }
